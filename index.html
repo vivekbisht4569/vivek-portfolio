@@ -4,32 +4,77 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vivek Singh Bisht | Cybersecurity Portfolio</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui;scroll-behavior:smooth}
 body{background:#0b0f17;color:#e6edf3;overflow-x:hidden}
-body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at 20% 20%,rgba(34,197,94,.15),transparent 40%),radial-gradient(circle at 80% 60%,rgba(34,197,94,.12),transparent 40%);z-index:-1}
+body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;
+background:radial-gradient(circle at 20% 20%,rgba(34,197,94,.15),transparent 40%),
+radial-gradient(circle at 80% 60%,rgba(34,197,94,.12),transparent 40%);
+z-index:-1}
+
 a{text-decoration:none;color:inherit}
+
 .container{max-width:1100px;margin:auto;padding:40px 20px}
+
 nav{position:fixed;width:100%;background:#0b0f17cc;backdrop-filter:blur(10px);border-bottom:1px solid #1f2937}
 nav .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:15px 20px}
 nav ul{display:flex;gap:20px;list-style:none}
 nav li a:hover{color:#22c55e}
+
 .hero{padding-top:120px;text-align:center;animation:fadeIn 1.2s ease}
 .hero h1{font-size:42px;font-weight:700}
 .hero p{margin-top:10px;color:#9ca3af}
+
 .btns{margin-top:20px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
 .btn{padding:10px 18px;border-radius:8px;border:1px solid #22c55e;color:#22c55e;transition:.25s}
 .btn:hover{background:#22c55e;color:#000;box-shadow:0 0 15px #22c55e}
+
 .section-title{font-size:28px;margin-bottom:20px}
+
 .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{display:block;background:#111827;border:1px solid #1f2937;padding:20px;border-radius:12px;transition:.25s;opacity:0;transform:translateY(20px)}
+
+.card{
+display:block;
+background:#111827;
+border:1px solid #1f2937;
+padding:20px;
+border-radius:12px;
+transition:.25s;
+opacity:0;
+transform:translateY(20px)
+}
+
 .card.visible{opacity:1;transform:translateY(0)}
-.card:hover{transform:translateY(-6px);border-color:#22c55e}
-.badge{display:inline-block;background:#1f2937;padding:6px 10px;border-radius:8px;margin:5px;font-size:14px}
-footer{text-align:center;padding:30px;color:#6b7280;border-top:1px solid #1f2937;margin-top:50px}
-@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:#22c55e;
+}
+
+.badge{
+display:inline-block;
+background:#1f2937;
+padding:6px 10px;
+border-radius:8px;
+margin:5px;
+font-size:14px
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#6b7280;
+border-top:1px solid #1f2937;
+margin-top:50px
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
 </style>
 </head>
 
@@ -50,8 +95,9 @@ footer{text-align:center;padding:30px;color:#6b7280;border-top:1px solid #1f2937
 <section class="hero container">
 <h1>Aspiring SOC Analyst | Cybersecurity Student</h1>
 <p>Networking • SIEM • Threat Detection • Blue Team</p>
+
 <div class="btns">
-<!---<a class="btn" href="#">Resume</a>--> 
+<!-- Resume button (add later) -->
 <a class="btn" href="https://github.com/vivekbisht4569" target="_blank">GitHub</a>
 <a class="btn" href="https://www.linkedin.com/in/vivek-singh-bisht-074160326/" target="_blank">LinkedIn</a>
 <a class="btn" href="https://tryhackme.com/p/viveksinghbisht2" target="_blank">TryHackMe</a>
@@ -61,13 +107,9 @@ footer{text-align:center;padding:30px;color:#6b7280;border-top:1px solid #1f2937
 <section id="about" class="container">
 <h2 class="section-title">About Me</h2>
 <p>
-I’m Vivek Singh Bisht, a B.Tech CSE student with a strong interest in Cybersecurity, especially in the defensive (Blue Team / SOC Level 1) domain. 
-
-I am currently building strong fundamentals in Computer Networks, Kali Linux, and core security concepts. 
-
-My focus areas include networking fundamentals for security, practicing Linux tools, understanding alerts, basic log analysis, and incident detection. 
-
-I believe in learning step by step through consistency, hands-on labs, and documenting my journey on GitHub.
+I’m Vivek Singh Bisht, a B.Tech CSE student focused on Cybersecurity, especially in the defensive (Blue Team / SOC Level 1) domain. 
+I am currently building strong fundamentals in networking, Linux, and core security concepts.
+My focus includes log analysis, alert monitoring, and practical hands-on labs.
 </p>
 </section>
 
@@ -75,40 +117,39 @@ I believe in learning step by step through consistency, hands-on labs, and docum
 <h2 class="section-title">Skills</h2>
 <div>
 <span class="badge">TCP/IP</span>
-<span class="badge">IP Subnetting</span>
-<span class="badge">Static Routing</span>
-<span class="badge">Dynamic Routing</span>
+<span class="badge">Subnetting</span>
+<span class="badge">Routing</span>
 <span class="badge">Linux</span>
 <span class="badge">Wireshark</span>
 <span class="badge">Nmap</span>
 <span class="badge">SIEM (Splunk / ELK)</span>
 <span class="badge">Log Analysis</span>
-<span class = "badge">Cybersecurity Write-up</span>
 </div>
 </section>
 
 <section id="projects" class="container">
 <h2 class="section-title">Labs & Projects</h2>
+
 <div class="card-grid">
 
-<a href="networking-labs/index.html" class="card"> 
+<a href="networking-labs/index.html" class="card">
 <h3>Networking Labs</h3>
-<p>Structured networking practice covering routing, switching, subnetting, STP, ACL, RIP and DHCP.</p>
+<p>Hands-on labs covering routing, subnetting, VLANs, ACLs, STP, DHCP and more.</p>
 </a>
 
 <div class="card">
 <h3>Packet Analysis</h3>
-<p>Traffic investigation using Wireshark and protocol analysis.</p>
+<p>Network traffic investigation using Wireshark and protocol analysis.</p>
 </div>
 
 <div class="card">
-<h3>SIEM Tools (Splunk / ELK)</h3>
-<p>Basic alert investigation and log monitoring practice.</p>
+<h3>SIEM Practice</h3>
+<p>Basic alert investigation and log monitoring using SIEM tools.</p>
 </div>
 
-<div class = "card">
-<h4>Cybersecurity Write-up</h4>
-<p>A write-up is a structured document that explains how a particular cybersecurity challenge, lab, or real-world problem was solved. It captures the complete thought process, methodology, tools used, and steps taken to reach the final solution.</p>
+<div class="card">
+<h3>Cybersecurity Write-ups</h3>
+<p>Step-by-step documentation of labs and problem-solving methodology.</p>
 </div>
 
 </div>
@@ -117,8 +158,7 @@ I believe in learning step by step through consistency, hands-on labs, and docum
 <section id="contact" class="container">
 <h2 class="section-title">Contact</h2>
 <p>Email: viveksinghbisht28@gmail.com</p>
-<p>Contact: +91 7838448196 </p> 
-
+<p>Phone: +91 7838448196</p>
 </section>
 
 <footer>
@@ -126,7 +166,12 @@ I believe in learning step by step through consistency, hands-on labs, and docum
 </footer>
 
 <script>
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.15});
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting)e.target.classList.add('visible')
+})
+},{threshold:.15});
+
 document.querySelectorAll('.card').forEach(el=>observer.observe(el));
 </script>
 
