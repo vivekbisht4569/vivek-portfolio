@@ -43,58 +43,7 @@ The router forwards packets strictly based on these manually configured entries.
 Used in small networks, simple topologies, controlled environments, and as backup routes where fixed paths are required.
 </p>
 
-<h2>Topology</h2>
-<p>
-Three routers connect LAN (192.168.1.0/24) to Server Network (172.16.1.0/24).
-Traffic flows from PC network to server network through R1 → R2 → R3.
-</p>
 
-<img src="images/topology.png" alt="Network Topology">
-
-<h2>Example Static Route Configuration</h2>
-
-<p>
-Below is the configuration used in this 3-router topology.
-</p>
-
-<h3>R1 Configuration</h3>
-<pre>
-ip route 192.168.3.0 255.255.255.0 192.168.2.2
-ip route 172.16.1.0 255.255.255.0 192.168.2.2
-</pre>
-
-<h3>R2 Configuration</h3>
-<pre>
-ip route 192.168.1.0 255.255.255.0 192.168.2.1
-ip route 172.16.1.0 255.255.255.0 192.168.3.2
-</pre>
-
-<h3>R3 Configuration</h3>
-<pre>
-ip route 192.168.1.0 255.255.255.0 192.168.3.1
-ip route 192.168.2.0 255.255.255.0 192.168.3.1
-</pre>
-
-<img src="images/configuration.png" alt="Routing Configuration Screenshot">
-
-<h2>Verification</h2>
-
-<pre>
-ping 172.16.1.2
-ping cisco.com
-show ip route
-</pre>
-
-<h3>Ping Verification</h3>
-<img src="images/ping.png" alt="Ping Output">
-
-<h3>Website Access Verification</h3>
-<img src="images/server_website_access.png" alt="Website Access Screenshot">
-
-
-<p>
-Successful configuration allowed both PCs to ping the DNS server and access cisco.com using name resolution.
-</p>
 
 </div>
 </body>
