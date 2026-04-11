@@ -5,48 +5,109 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vivek Singh Bisht | Cybersecurity Portfolio</title>
 
-<!-- Google tag (gtag.js) -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7L80Y86NRC"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7L80Y86NRC');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-7L80Y86NRC');
 </script>
-
-
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui;scroll-behavior:smooth}
 body{background:#0b0f17;color:#e6edf3;overflow-x:hidden}
-body::before{content:"";position:fixed;top:0;left:0;width:100%;height:100%;
-background:radial-gradient(circle at 20% 20%,rgba(34,197,94,.15),transparent 40%),
+
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,rgba(34,197,94,.15),transparent 40%),
 radial-gradient(circle at 80% 60%,rgba(34,197,94,.12),transparent 40%);
-z-index:-1}
+z-index:-1;
+}
 
 a{text-decoration:none;color:inherit}
 
 .container{max-width:1100px;margin:auto;padding:40px 20px}
 
-nav{position:fixed;width:100%;background:#0b0f17cc;backdrop-filter:blur(10px);border-bottom:1px solid #1f2937}
-nav .nav-inner{display:flex;justify-content:space-between;align-items:center;padding:15px 20px}
-nav ul{display:flex;gap:20px;list-style:none}
+nav{
+position:fixed;
+width:100%;
+background:#0b0f17cc;
+backdrop-filter:blur(10px);
+border-bottom:1px solid #1f2937
+}
+
+nav .nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none
+}
+
 nav li a:hover{color:#22c55e}
 
-.hero{padding-top:120px;text-align:center;animation:fadeIn 1.2s ease}
-.hero h1{font-size:42px;font-weight:700}
-.hero p{margin-top:10px;color:#9ca3af}
+.hero{
+padding-top:120px;
+text-align:center;
+animation:fadeIn 1.2s ease
+}
 
-.btns{margin-top:20px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
-.btn{padding:10px 18px;border-radius:8px;border:1px solid #22c55e;color:#22c55e;transition:.25s}
-.btn:hover{background:#22c55e;color:#000;box-shadow:0 0 15px #22c55e}
+.hero h1{
+font-size:42px;
+font-weight:700
+}
 
-.section-title{font-size:28px;margin-bottom:20px}
+.hero p{
+margin-top:10px;
+color:#9ca3af
+}
 
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.btns{
+margin-top:20px;
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap
+}
+
+.btn{
+padding:10px 18px;
+border-radius:8px;
+border:1px solid #22c55e;
+color:#22c55e;
+transition:.25s
+}
+
+.btn:hover{
+background:#22c55e;
+color:#000;
+box-shadow:0 0 15px #22c55e
+}
+
+.section-title{
+font-size:28px;
+margin-bottom:20px
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px
+}
 
 .card{
 display:block;
@@ -56,14 +117,29 @@ padding:20px;
 border-radius:12px;
 transition:.25s;
 opacity:0;
-transform:translateY(20px)
+transform:translateY(20px);
+cursor:pointer
 }
 
-.card.visible{opacity:1;transform:translateY(0)}
+.card.visible{
+opacity:1;
+transform:translateY(0)
+}
 
 .card:hover{
 transform:translateY(-6px);
 border-color:#22c55e;
+box-shadow:0 0 15px rgba(34,197,94,.3)
+}
+
+.card h3{
+margin-bottom:10px;
+font-size:18px
+}
+
+.card p{
+margin-top:5px;
+color:#9ca3af
 }
 
 .badge{
@@ -87,16 +163,6 @@ margin-top:50px
 from{opacity:0;transform:translateY(20px)}
 to{opacity:1;transform:translateY(0)}
 }
-
-.card h3 {
-    margin-bottom: 10px;
-}
-
-.card p {
-    margin-top: 5px;
-}
-
-
 </style>
 </head>
 
@@ -119,7 +185,6 @@ to{opacity:1;transform:translateY(0)}
 <p>Networking • SIEM • Threat Detection • Blue Team</p>
 
 <div class="btns">
-<!-- Resume button (add later) -->
 <a class="btn" href="https://github.com/vivekbisht4569" target="_blank">GitHub</a>
 <a class="btn" href="https://www.linkedin.com/in/vivek-singh-bisht-074160326/" target="_blank">LinkedIn</a>
 <a class="btn" href="https://tryhackme.com/p/viveksinghbisht2" target="_blank">TryHackMe</a>
@@ -156,27 +221,23 @@ My focus includes log analysis, alert monitoring, and practical hands-on labs.
 
 <a href="networking-labs/index.html" class="card">
 <h3>Networking Labs</h3>
-
 <p>Hands-on labs covering routing, subnetting, VLANs, ACLs, STP, DHCP and more.</p>
 </a>
 
-<div class="card">
+<a href="#" class="card">
 <h3>Packet Analysis</h3>
-
 <p>Network traffic investigation using Wireshark and protocol analysis.</p>
-</div>
+</a>
 
-<div class="card">
+<a href="#" class="card">
 <h3>SIEM Practice</h3>
-
 <p>Basic alert investigation and log monitoring using SIEM tools.</p>
-</div>
+</a>
 
-<div class="card">
-<h3> Write-ups</h3>
-
-<p>Step-by-step documentation of labs and problem-solving methodology.</p>
-</div>
+<a href="projects/index.html" class="card">
+<h3>Projects</h3>
+<p>Collection of cybersecurity and networking projects with practical implementation.</p>
+</a>
 
 </div>
 </section>
