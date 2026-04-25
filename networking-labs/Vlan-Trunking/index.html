@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VLAN Trunking Lab</title>
+
+<style>
+body{background:#0b0f17;color:#e6edf3;font-family:Arial;line-height:1.7}
+.container{max-width:900px;margin:auto;padding:50px 20px}
+h1,h2{color:#22c55e}
+h2{margin-top:30px}
+.back{color:#22c55e;text-decoration:none}
+pre{background:#111827;padding:15px;border-radius:8px;overflow-x:auto}
+
+.github-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 20px;
+  background:#22c55e;
+  color:#0b0f17;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.github-btn:hover{
+  background:#16a34a;
+}
+
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<a class="back" href="../index.html">← Back to Networking Labs</a>
+
+<h1>VLAN Trunking Lab (Multi-Switch)</h1>
+
+<h2>Overview</h2>
+<p>
+This lab demonstrates VLAN segmentation and trunking between two switches using Cisco Packet Tracer.  
+The goal was to allow communication within the same VLAN across switches and restrict communication between different VLANs.
+</p>
+
+<h2>Topology Summary</h2>
+<p>
+The network consists of:
+</p>
+<ul>
+<li>2 Switches connected via trunk link (Fa0/24 ↔ Fa0/24)</li>
+<li>6 End devices (PCs & Laptops)</li>
+<li>3 VLANs: IT (10), HR (20), Sales (30)</li>
+</ul>
+
+<h2>VLAN Structure</h2>
+<ul>
+<li><b>VLAN 10 → IT</b> (192.168.10.x)</li>
+<li><b>VLAN 20 → HR</b> (192.168.20.x)</li>
+<li><b>VLAN 30 → Sales</b> (192.168.30.x)</li>
+</ul>
+
+<h2>What I Configured</h2>
+
+<h3>1. VLAN Creation</h3>
+<pre>
+vlan 10
+ name IT
+
+vlan 20
+ name HR
+
+vlan 30
+ name SALES
+</pre>
+
+<h3>2. Access Port Assignment</h3>
+<pre>
+interface fa0/1
+ switchport mode access
+ switchport access vlan 10
+
+interface fa0/2
+ switchport mode access
+ switchport access vlan 20
+
+interface fa0/3
+ switchport mode access
+ switchport access vlan 30
+</pre>
+
+<h3>3. Trunk Configuration</h3>
+<pre>
+interface fa0/24
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30
+</pre>
+
+<h2>Testing Results</h2>
+
+<p><b>Successful:</b></p>
+<ul>
+<li>Devices in same VLAN communicate across switches</li>
+<li>Example: VLAN 10 → 192.168.10.2 ↔ 192.168.10.3 ✔</li>
+</ul>
+
+<p><b>Blocked (Expected):</b></p>
+<ul>
+<li>VLAN 10 ✖ VLAN 20</li>
+<li>VLAN 10 ✖ VLAN 30</li>
+<li>VLAN 20 ✖ VLAN 30</li>
+</ul>
+
+<h2>Key Learning</h2>
+<ul>
+<li>VLANs isolate networks at Layer 2</li>
+<li>Trunk ports carry multiple VLANs using 802.1Q tagging</li>
+<li>Access ports belong to only one VLAN</li>
+<li>Same VLAN devices communicate even across switches</li>
+<li>Different VLANs cannot communicate without routing</li>
+</ul>
+
+<h2>Important Insight</h2>
+<p>
+Even after correct VLAN and trunk configuration, devices in different VLANs cannot communicate.  
+This is expected behavior and requires <b>Inter-VLAN Routing</b> using a router or Layer 3 switch.
+</p>
+
+<h2>Where This Is Used</h2>
+<p>
+Enterprise networks, campus networks, and data centers where multiple departments need isolation but shared infrastructure.
+</p>
+
+<h2>🔗 View Full Project on GitHub</h2>
+
+<p>
+You can view the complete lab setup, screenshots, and configurations on my GitHub repository:
+</p>
+
+<a class="github-btn" href="https://github.com/vivekbisht4569/Networking-labs/tree/main/03%20VLAN-Trunking/lab1" target="_blank">
+  🚀 View on GitHub
+</a>
+
+
+<h2>Conclusion</h2>
+<p>
+This lab helped me understand real-world VLAN implementation, trunking, and network segmentation.  
+It also highlighted the need for Layer 3 devices for inter-VLAN communication.
+</p>
+
+</div>
+</body>
+</html>
