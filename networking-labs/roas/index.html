@@ -84,6 +84,22 @@ th{
     margin-top:6px;
 }
 
+.github-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    background:#22c55e;
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.github-btn:hover{
+    background:#16a34a;
+}
+
 </style>
 </head>
 
@@ -111,62 +127,190 @@ It is called <b>"stick"</b> because only one physical cable connects the router 
 
 <div class="section">
 
+<h2>Lab Scenario</h2>
+
+<p>
+In this lab, I created a multi-switch VLAN environment with Inter-VLAN Routing using Router-on-a-Stick.
+</p>
+
+<ul>
+<li>🟦 VLAN 10 → IT Department</li>
+<li>🟨 VLAN 20 → Accounts Department</li>
+</ul>
+
+<p>
+Two switches were connected using a trunk link, and a Cisco router was configured with subinterfaces to route traffic between VLANs.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>IP Addressing Scheme</h2>
+
+<table>
+
+<tr>
+<th>Department</th>
+<th>VLAN</th>
+<th>Network</th>
+<th>Gateway</th>
+</tr>
+
+<tr>
+<td>IT</td>
+<td>10</td>
+<td>192.168.10.0/24</td>
+<td>192.168.10.1</td>
+</tr>
+
+<tr>
+<td>Accounts</td>
+<td>20</td>
+<td>192.168.20.0/24</td>
+<td>192.168.20.1</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
 <h2>How It Works</h2>
 
 <h3>Switch Side</h3>
 
-<p>The switch port connected to the router must be configured as a trunk port.</p>
+<p>
+The switch ports connected between switches and router were configured as trunk ports.
+</p>
 
 <pre>
-switchport mode trunk
+interface fa0/5
+ switchport mode trunk
+
+interface fa0/6
+ switchport mode trunk
 </pre>
 
 <p>
-This trunk link allows multiple VLANs to pass through the same physical connection.
+This allows VLAN traffic from multiple VLANs to travel through a single connection.
 </p>
 
 <h3>Router Side</h3>
 
 <p>
-Instead of using multiple physical interfaces, the router creates logical interfaces called <b>subinterfaces</b>.  
-Each subinterface represents a specific VLAN.
+The router uses subinterfaces to act as default gateways for each VLAN.
 </p>
 
 <pre>
-interface g0/0.10
+interface fa0/0.10
  encapsulation dot1Q 10
  ip address 192.168.10.1 255.255.255.0
 
-interface g0/0.20
+interface fa0/0.20
  encapsulation dot1Q 20
  ip address 192.168.20.1 255.255.255.0
 </pre>
 
 <ul>
-<li>Each subinterface is associated with a VLAN.</li>
-<li>Each VLAN has its own default gateway.</li>
-<li>The router performs routing between VLAN networks.</li>
+<li>Each subinterface is linked to a VLAN.</li>
+<li>The router performs routing between VLANs.</li>
+<li>Devices use router IP as default gateway.</li>
 </ul>
 
 </div>
 
 <div class="section">
 
-<h2>Why We Need Router-on-a-Stick</h2>
+<h2>What I Configured</h2>
 
-<p>By default:</p>
+<h3>VLAN Creation</h3>
+
+<pre>
+vlan 10
+ name IT
+
+vlan 20
+ name Accounts
+</pre>
+
+<h3>Access Port Configuration</h3>
+
+<pre>
+interface range fa0/1 - 2
+ switchport mode access
+ switchport access vlan 10
+
+interface range fa0/3 - 4
+ switchport mode access
+ switchport access vlan 20
+</pre>
+
+<h3>Trunk Configuration</h3>
+
+<pre>
+interface fa0/5
+ switchport mode trunk
+
+interface fa0/6
+ switchport mode trunk
+</pre>
+
+</div>
+
+<div class="section">
+
+<h2>Testing Results</h2>
 
 <ul>
-<li>Devices in the <b>same VLAN</b> can communicate.</li>
-<li>Devices in <b>different VLANs</b> cannot communicate.</li>
+<li>✅ Devices within same VLAN communicated successfully</li>
+<li>✅ VLAN 10 devices communicated with VLAN 20 devices through router</li>
+<li>✅ Inter-VLAN routing worked correctly</li>
 </ul>
 
+</div>
+
+<div class="section">
+
+<h2>Key Learning</h2>
+
+<ul>
+<li>ROAS uses one physical router interface for multiple VLANs</li>
+<li>802.1Q tagging is required for VLAN identification</li>
+<li>Subinterfaces act as gateways for VLANs</li>
+<li>Trunk ports carry traffic for multiple VLANs</li>
+<li>Inter-VLAN communication requires Layer 3 routing</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>Why Router-on-a-Stick Is Important</h2>
+
+<ul>
+<li>Reduces cabling complexity</li>
+<li>Uses fewer router interfaces</li>
+<li>More scalable than legacy inter-VLAN routing</li>
+<li>Widely used in small and medium enterprise networks</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>View Full Project on GitHub</h2>
+
 <p>
-To enable communication between different VLANs, we need <b>Inter-VLAN Routing</b>.  
-Router-on-a-Stick is one method used to achieve this.
+You can view the complete lab setup, screenshots, and configurations on my GitHub repository:
 </p>
 
+<a class="github-btn" href="https://github.com/vivekbisht4569/Networking-labs/tree/main/05%20Router-On-A-Stick/lab%201" target="_blank">
+🚀 View on GitHub
+</a>
 
+</div>
 
 </div>
 
