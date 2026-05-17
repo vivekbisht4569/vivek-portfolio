@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SOC Home Lab | Vivek</title>
+
+<style>
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    font-family:Arial;
+    padding:40px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    color:#22c55e;
+}
+
+h2{
+    margin-top:30px;
+    color:#22c55e;
+}
+
+img{
+    width:100%;
+    margin-top:20px;
+    border-radius:10px;
+    border:1px solid #1f2937;
+}
+
+.back{
+    color:#22c55e;
+    text-decoration:none;
+}
+
+.github-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 20px;
+    background:#22c55e;
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.github-btn:hover{
+    background:#16a34a;
+}
+
+.tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+
+.tech{
+    background:#111827;
+    padding:10px 15px;
+    border-radius:8px;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="../index.html" class="back">← Back to Projects</a>
+
+<h1>SOC Home Lab</h1>
+
+<h2>Overview</h2>
+<p>
+A practical SOC & Detection Engineering home lab built using Kali Linux, Windows 11, and VirtualBox in an isolated sandbox environment. 
+This lab focuses on attack simulation, Windows event log analysis, network monitoring, and blue team investigation workflows.
+</p>
+
+<h2>Lab Setup</h2>
+
+<ul>
+<li>Host OS: Windows 11</li>
+<li>Attacker Machine: Kali Linux VM</li>
+<li>Virtualization: VirtualBox</li>
+<li>Network Type: Host-Only Adapter</li>
+<li>Environment: Isolated Sandbox</li>
+</ul>
+
+<h2>Attack Simulation</h2>
+
+<p>
+Performed reconnaissance and TCP scan using Nmap from Kali Linux to the Windows host machine.
+</p>
+
+<pre>
+nmap -Pn -sT -p 80 192.168.56.1
+</pre>
+
+<h2>Detection & Analysis</h2>
+
+<ul>
+<li>Analyzed Windows Event Viewer logs</li>
+<li>Investigated Event ID 5156 & 5157</li>
+<li>Detected inbound attacker traffic</li>
+<li>Identified source IP and destination ports</li>
+<li>Compared normal vs suspicious traffic behavior</li>
+</ul>
+
+<h2>Technologies Used</h2>
+
+<div class="tech-stack">
+    <div class="tech">Kali Linux</div>
+    <div class="tech">Windows 11</div>
+    <div class="tech">VirtualBox</div>
+    <div class="tech">Nmap</div>
+    <div class="tech">Windows Event Viewer</div>
+    <div class="tech">Networking</div>
+    <div class="tech">Log Analysis</div>
+</div>
+
+<h2>Key Learnings</h2>
+
+<ul>
+<li>Inbound vs Outbound Traffic</li>
+<li>Windows Event Logging</li>
+<li>Port 80 vs Port 443 Analysis</li>
+<li>Attack Detection Workflow</li>
+<li>Network Reconnaissance</li>
+<li>Basic SOC Investigation Process</li>
+</ul>
+
+<h2>Screenshot</h2>
+
+<img src="images/soc-home-lab.png" alt="SOC Home Lab Screenshot">
+
+<h2>Result</h2>
+
+<p>
+Successfully built a beginner SOC home lab capable of generating attack traffic and analyzing Windows security logs inside a safe sandbox environment.
+</p>
+
+<a class="github-btn" href="https://github.com/vivekbisht4569/SOC-Home-Lab" target="_blank">
+🚀 View on GitHub
+</a>
+
+</div>
+
+</body>
+</html>
