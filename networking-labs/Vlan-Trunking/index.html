@@ -136,6 +136,37 @@ pre{
     transform:translateY(-2px);
 }
 
+.image-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:25px;
+    margin-top:20px;
+}
+
+.image-card{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    border-radius:16px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.image-card:hover{
+    transform:translateY(-3px);
+    border-color:#22c55e;
+}
+
+.image-card img{
+    width:100%;
+    display:block;
+}
+
+.image-caption{
+    padding:15px;
+    color:#cbd5e1;
+    font-size:15px;
+}
+
 .highlight{
     color:#22c55e;
     font-weight:600;
@@ -329,6 +360,96 @@ This behavior is expected and requires <span class="highlight">Inter-VLAN Routin
 <div class="tech">Switching</div>
 <div class="tech">TCP/IP</div>
 <div class="tech">Cisco IOS</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>📸 Lab Screenshots</h2>
+
+<div class="image-grid">
+
+<!-- TOPOLOGY -->
+
+<div class="image-card">
+<img src="images/01_topology.png" alt="Network Topology">
+
+<div class="image-caption">
+Complete VLAN topology created in Cisco Packet Tracer with multiple switches, VLAN segmentation, and trunk connectivity.
+</div>
+</div>
+
+<!-- VLAN ASSIGNMENT -->
+
+<div class="image-card">
+<img src="images/02_vlan_assign.png" alt="VLAN Assignment">
+
+<div class="image-caption">
+Configured VLAN assignment for different departments including IT, HR, and SALES using Cisco IOS commands.
+</div>
+</div>
+
+<!-- VLAN STATUS -->
+
+<div class="image-card">
+<img src="images/03_vlan_status.png" alt="VLAN Status">
+
+<div class="image-caption">
+Verified VLAN creation and active VLAN membership using VLAN status commands.
+</div>
+</div>
+
+<!-- TRUNKING -->
+
+<div class="image-card">
+<img src="images/04_trunking.png" alt="Trunk Configuration">
+
+<div class="image-caption">
+Configured 802.1Q trunking between switches to allow VLAN traffic across the network.
+</div>
+</div>
+
+<!-- ACCESS PORTS -->
+
+<div class="image-card">
+<img src="images/05_assign_ports.png" alt="Access Port Assignment">
+
+<div class="image-caption">
+Assigned switch interfaces to specific VLANs using access port configuration.
+</div>
+</div>
+
+<!-- INTERFACE STATUS -->
+
+<div class="image-card">
+<img src="images/06_interface_brief.png" alt="Interface Brief">
+
+<div class="image-caption">
+Verified interface configuration and VLAN association using interface brief commands.
+</div>
+</div>
+
+<!-- SUCCESSFUL PING -->
+
+<div class="image-card">
+<img src="images/07_ping_success.png" alt="Successful Ping">
+
+<div class="image-caption">
+Successful communication between devices inside the same VLAN across multiple switches.
+</div>
+</div>
+
+<!-- FAILED PING -->
+
+<div class="image-card">
+<img src="images/08_ping_fail.png" alt="Blocked Communication">
+
+<div class="image-caption">
+Communication blocked between different VLANs demonstrating proper Layer 2 segmentation.
+</div>
+</div>
+
 </div>
 
 </div>
