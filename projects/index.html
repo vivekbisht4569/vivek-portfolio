@@ -1,67 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Projects | Vivek </title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Cybersecurity Projects | Vivek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
-body{background:#0b0f17;color:#e6edf3;overflow-x:hidden}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    overflow-x:hidden;
+}
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:60px 20px
-}
-
-h1{
-font-size:36px;
-margin-bottom:10px
-}
-
-.subtitle{
-color:#9ca3af;
-margin-bottom:40px
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px
-}
-
-.card{
-display:block;
-background:#111827;
-border:1px solid #1f2937;
-padding:25px;
-border-radius:12px;
-transition:.25s;
-text-decoration:none;
-color:#e6edf3
-}
-
-.card:hover{
-transform:translateY(-6px);
-border-color:#22c55e;
-box-shadow:0 0 20px rgba(34,197,94,.3)
-}
-
-h3{
-margin-bottom:10px;
-color:#22c55e
+    max-width:1200px;
+    margin:auto;
+    padding:70px 20px;
 }
 
 .back{
-display:inline-block;
-margin-bottom:30px;
-color:#22c55e;
-text-decoration:none
+    display:inline-block;
+    margin-bottom:35px;
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
 }
+
+.back:hover{
+    opacity:.8;
+}
+
+.hero{
+    margin-bottom:50px;
+}
+
+.hero h1{
+    font-size:48px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#9ca3af;
+    font-size:17px;
+    line-height:1.7;
+    max-width:800px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.card{
+    display:block;
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:30px;
+    border-radius:18px;
+    transition:.3s;
+    text-decoration:none;
+    color:#e6edf3;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:#22c55e;
+    transform:scaleX(0);
+    transition:.3s;
+}
+
+.card:hover::before{
+    transform:scaleX(1);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#22c55e;
+    box-shadow:0 0 30px rgba(34,197,94,.15);
+}
+
+.card h3{
+    color:#22c55e;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.card p{
+    color:#cbd5e1;
+    line-height:1.7;
+    margin-bottom:22px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tag{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:13px;
+    color:#9ca3af;
+}
+
+.status{
+    display:inline-block;
+    margin-top:20px;
+    color:#22c55e;
+    font-size:14px;
+    font-weight:600;
+}
+
+.footer{
+    margin-top:50px;
+    text-align:center;
+    color:#6b7280;
+    font-size:14px;
+}
+
 </style>
+
 </head>
 
 <body>
@@ -70,23 +153,86 @@ text-decoration:none
 
 <a class="back" href="../index.html">← Back to Portfolio</a>
 
-<h1>Projects</h1>
-<p class="subtitle">Hands-on cybersecurity and networking projects showcasing practical implementation.</p>
+<div class="hero">
+
+<h1>💻 Cybersecurity Projects</h1>
+
+<p class="subtitle">
+Hands-on cybersecurity and networking projects focused on Python scripting, offensive security fundamentals, networking concepts, and practical security implementations.
+</p>
+
+</div>
 
 <div class="grid">
 
 <!-- PORT SCANNER -->
+
 <a href="port-scanner/index.html" class="card">
-<h3>Port Scanner</h3>
-<p>Custom Python tool to scan open ports and analyze network services.</p>
+
+<h3>🌐 TCP Port Scanner</h3>
+
+<p>
+Custom Python-based TCP Port Scanner capable of identifying open ports and active services using socket programming and networking concepts.
+</p>
+
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Socket Programming</span>
+<span class="tag">Networking</span>
+<span class="tag">Reconnaissance</span>
+<span class="tag">TCP/IP</span>
+</div>
+
+
+
 </a>
 
 <!-- PASSWORD CHECKER -->
+
 <a href="password-checker/index.html" class="card">
-<h3>Password Strength Checker</h3>
-<p>Tool to evaluate password strength based on security rules and patterns.</p>
+
+<h3>🔐 Password Strength Checker</h3>
+
+<p>
+Python-based password security tool designed to validate password strength using complexity rules such as uppercase characters, numbers, symbols, and length validation.
+</p>
+
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Password Security</span>
+<span class="tag">Validation</span>
+<span class="tag">Cybersecurity</span>
+<span class="tag">CLI Tool</span>
+</div>
+
+
 </a>
 
+<!-- FUTURE PROJECT 
+
+<a href="#" class="card">
+
+<h3>🛡️ Log Analysis Tool</h3>
+
+<p>
+Upcoming cybersecurity utility focused on analyzing Windows and Linux logs for suspicious activity detection and basic threat investigation workflows.
+</p>
+
+<div class="tags">
+<span class="tag">Log Analysis</span>
+<span class="tag">Python</span>
+<span class="tag">SOC</span>
+<span class="tag">Blue Team</span>
+</div>
+
+<span class="status">🚧 In Progress</span>
+
+</a>  --> 
+
+</div>
+
+<div class="footer">
+Built & documented by Vivek Singh Bisht
 </div>
 
 </div>

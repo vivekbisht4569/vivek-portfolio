@@ -1,34 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<title>Password Checker | Vivek</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Password Strength Checker | Vivek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-body{background:#0b0f17;color:#e6edf3;font-family:Arial;padding:40px}
-.container{max-width:900px;margin:auto}
-h1{color:#22c55e}
-img{width:100%;margin-top:20px;border-radius:10px}
-.back{color:#22c55e;text-decoration:none}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    line-height:1.7;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.back{
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:600;
+    display:inline-block;
+    margin-bottom:35px;
+    transition:.3s;
+}
+
+.back:hover{
+    opacity:.8;
+}
+
+.hero{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:35px;
+    box-shadow:0 0 30px rgba(0,0,0,.3);
+}
+
+.hero h1{
+    font-size:46px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#cbd5e1;
+    font-size:17px;
+    max-width:800px;
+}
+
+.section{
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:30px;
+    border-radius:18px;
+    margin-bottom:30px;
+    transition:.3s;
+}
+
+.section:hover{
+    border-color:#22c55e;
+    transform:translateY(-2px);
+}
+
+h2{
+    color:#22c55e;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+p{
+    color:#d1d5db;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:12px;
+    color:#d1d5db;
+}
+
+.tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.tech{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:14px;
+    color:#cbd5e1;
+    transition:.3s;
+}
+
+.tech:hover{
+    background:#1f2937;
+    transform:translateY(-2px);
+}
+
+.image-card{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    border-radius:16px;
+    overflow:hidden;
+    margin-top:20px;
+    transition:.3s;
+}
+
+.image-card:hover{
+    border-color:#22c55e;
+    transform:translateY(-2px);
+}
+
+.image-card img{
+    width:100%;
+    display:block;
+}
+
+.image-caption{
+    padding:15px;
+    color:#cbd5e1;
+    font-size:15px;
+}
 
 .github-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 20px;
-  background:#22c55e;
-  color:#0b0f17;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
-  transition:0.3s;
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 24px;
+    background:#22c55e;
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
 }
 
 .github-btn:hover{
-  background:#16a34a;
+    background:#16a34a;
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(34,197,94,.3);
 }
 
+.highlight{
+    color:#22c55e;
+    font-weight:600;
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#6b7280;
+    font-size:14px;
+}
 
 </style>
+
 </head>
 
 <body>
@@ -37,34 +184,101 @@ img{width:100%;margin-top:20px;border-radius:10px}
 
 <a href="../index.html" class="back">← Back to Projects</a>
 
-<h1>Password Strength Checker</h1>
+<div class="hero">
 
-<h2>Overview</h2>
+<h1>🔐 Password Strength Checker</h1>
+
 <p>
-This project checks password strength based on multiple security rules like length, special characters, numbers, and uppercase letters.
+A Python-based cybersecurity project designed to analyze password strength using multiple security validation rules such as length, uppercase characters, numbers, and special symbols. 
+The project helps users understand strong password creation and secure authentication practices.
 </p>
 
-<h2>Features</h2>
+</div>
+
+<div class="section">
+
+<h2>🎯 Objective</h2>
+
+<p>
+The primary goal of this project was to build a simple security-focused utility capable of evaluating password complexity and promoting better password hygiene practices.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>⚙️ Features</h2>
+
 <ul>
-<li>Validates password strength</li>
-<li>Checks complexity rules</li>
-<li>Provides feedback to user</li>
+<li>Checks password length requirements</li>
+<li>Detects uppercase and lowercase characters</li>
+<li>Validates numeric characters</li>
+<li>Checks special symbol usage</li>
+<li>Provides password strength feedback</li>
+<li>Helps users understand secure password practices</li>
 </ul>
 
-<h2>Tools Used</h2>
-<p>Python, Security Concepts</p>
+</div>
 
-<h2>Screenshot</h2>
+<div class="section">
+
+<h2>🧰 Technologies Used</h2>
+
+<div class="tech-stack">
+<div class="tech">Python</div>
+<div class="tech">Cybersecurity Fundamentals</div>
+<div class="tech">Input Validation</div>
+<div class="tech">Password Security</div>
+<div class="tech">CLI Development</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>🧠 Key Learnings</h2>
+
+<ul>
+<li>Password security fundamentals</li>
+<li>Input validation logic</li>
+<li>Conditional statements in Python</li>
+<li>Basic cybersecurity best practices</li>
+<li>User feedback and validation handling</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>📸 Screenshot</h2>
+
+<div class="image-card">
 <img src="images/password-checker.png" alt="Password Checker Output">
 
-<h2>Result</h2>
+<div class="image-caption">
+Password strength validation output generated using Python.
+</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>✅ Result</h2>
+
 <p>
-Helps users create strong passwords and understand secure password practices.
+Successfully developed a beginner-level password strength checker capable of validating password complexity and encouraging secure password creation practices.
 </p>
 
 <a class="github-btn" href="https://github.com/vivekbisht4569/CyberSecurity-projects/blob/main/Password-strength-checker/checker.py" target="_blank">
-  🚀 View on GitHub
+🚀 View on GitHub
 </a>
+
+</div>
+
+<div class="footer">
+Built & documented by Vivek Singh Bisht
+</div>
 
 </div>
 

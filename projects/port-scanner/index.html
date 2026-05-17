@@ -1,34 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Port Scanner | Vivek</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-body{background:#0b0f17;color:#e6edf3;font-family:Arial;padding:40px}
-.container{max-width:900px;margin:auto}
-h1{color:#22c55e}
-img{width:100%;margin-top:20px;border-radius:10px}
-.back{color:#22c55e;text-decoration:none}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    line-height:1.7;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.back{
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:600;
+    display:inline-block;
+    margin-bottom:35px;
+    transition:.3s;
+}
+
+.back:hover{
+    opacity:.8;
+}
+
+.hero{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:35px;
+    box-shadow:0 0 30px rgba(0,0,0,.3);
+}
+
+.hero h1{
+    font-size:46px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#cbd5e1;
+    font-size:17px;
+    max-width:800px;
+}
+
+.section{
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:30px;
+    border-radius:18px;
+    margin-bottom:30px;
+    transition:.3s;
+}
+
+.section:hover{
+    border-color:#22c55e;
+    transform:translateY(-2px);
+}
+
+h2{
+    color:#22c55e;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+p{
+    color:#d1d5db;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:12px;
+    color:#d1d5db;
+}
+
+.tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.tech{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:14px;
+    color:#cbd5e1;
+    transition:.3s;
+}
+
+.tech:hover{
+    background:#1f2937;
+    transform:translateY(-2px);
+}
+
+.image-card{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    border-radius:16px;
+    overflow:hidden;
+    margin-top:20px;
+    transition:.3s;
+}
+
+.image-card:hover{
+    border-color:#22c55e;
+    transform:translateY(-2px);
+}
+
+.image-card img{
+    width:100%;
+    display:block;
+}
+
+.image-caption{
+    padding:15px;
+    color:#cbd5e1;
+    font-size:15px;
+}
+
+pre{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:18px;
+    border-radius:12px;
+    color:#22c55e;
+    overflow-x:auto;
+    margin-top:15px;
+}
 
 .github-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 20px;
-  background:#22c55e;
-  color:#0b0f17;
-  text-decoration:none;
-  border-radius:8px;
-  font-weight:bold;
-  transition:0.3s;
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 24px;
+    background:#22c55e;
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
 }
 
 .github-btn:hover{
-  background:#16a34a;
+    background:#16a34a;
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(34,197,94,.3);
 }
 
+.highlight{
+    color:#22c55e;
+    font-weight:600;
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#6b7280;
+    font-size:14px;
+}
 
 </style>
+
 </head>
 
 <body>
@@ -37,35 +194,118 @@ img{width:100%;margin-top:20px;border-radius:10px}
 
 <a href="../index.html" class="back">← Back to Projects</a>
 
-<h1>Port Scanner</h1>
+<div class="hero">
 
-<h2>Overview</h2>
+<h1>🌐 TCP Port Scanner</h1>
+
 <p>
-This project is a custom TCP Port Scanner built using Python. It scans a target system to identify open ports and running services.
+A custom Python-based TCP Port Scanner designed to identify open ports and active services on target systems using socket programming and networking concepts.
+This project helped strengthen foundational skills in networking, reconnaissance, and offensive security workflows.
 </p>
 
-<h2>Features</h2>
+</div>
+
+<div class="section">
+
+<h2>🎯 Objective</h2>
+
+<p>
+The primary goal of this project was to understand how network reconnaissance works by scanning target ports, identifying open services, and learning how systems expose services over TCP connections.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>⚙️ Features</h2>
+
 <ul>
-<li>Scan multiple ports</li>
-<li>Detect open ports</li>
-<li>Fast scanning using sockets</li>
+<li>Scans multiple TCP ports</li>
+<li>Detects open ports and active services</li>
+<li>Fast scanning using Python sockets</li>
+<li>Supports custom target input</li>
+<li>Basic network reconnaissance functionality</li>
 </ul>
 
-<h2>Tools Used</h2>
-<p>Python, Sockets, Networking Concepts</p>
+</div>
 
-<h2>Screenshot</h2>
+<div class="section">
+
+<h2>🧰 Technologies Used</h2>
+
+<div class="tech-stack">
+<div class="tech">Python</div>
+<div class="tech">Socket Programming</div>
+<div class="tech">Networking</div>
+<div class="tech">TCP/IP</div>
+<div class="tech">Cybersecurity Fundamentals</div>
+<div class="tech">Reconnaissance</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>🧠 Key Learnings</h2>
+
+<ul>
+<li>TCP communication basics</li>
+<li>Port scanning methodology</li>
+<li>Socket programming in Python</li>
+<li>Open port identification</li>
+<li>Basic reconnaissance techniques</li>
+<li>Understanding network services and protocols</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>💻 Example Scan</h2>
+
+<pre>
+Scanning Target: 192.168.1.1
+
+[+] Port 22 OPEN
+[+] Port 80 OPEN
+[+] Port 443 OPEN
+</pre>
+
+</div>
+
+<div class="section">
+
+<h2>📸 Screenshot</h2>
+
+<div class="image-card">
+
 <img src="images/port-scanner.png" alt="Port Scanner Output">
 
-<h2>Result</h2>
+<div class="image-caption">
+Custom Python TCP Port Scanner detecting open ports and active services.
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>✅ Result</h2>
+
 <p>
-Successfully detected open ports and understood how network services run on different ports.
+Successfully developed a custom TCP Port Scanner capable of identifying open ports and understanding how systems expose services through network communication.
 </p>
 
 <a class="github-btn" href="https://github.com/vivekbisht4569/CyberSecurity-projects/blob/main/port-scanner/scanner.py" target="_blank">
-  🚀 View on GitHub
+🚀 View on GitHub
 </a>
 
+</div>
+
+<div class="footer">
+Built & documented by Vivek Singh Bisht
+</div>
 
 </div>
 
