@@ -1,78 +1,443 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Networking Labs | Vivek </title>
+
+<title>Networking Labs | Vivek</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui}
-body{background:#0b0f17;color:#e6edf3;overflow-x:hidden}
-.container{max-width:1100px;margin:auto;padding:60px 20px}
-h1{font-size:36px;margin-bottom:10px}
-p.subtitle{color:#9ca3af;margin-bottom:40px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{display:block;background:#111827;border:1px solid #1f2937;padding:25px;border-radius:12px;transition:.25s;text-decoration:none;color:#e6edf3}
-.card:hover{transform:translateY(-6px);border-color:#22c55e;box-shadow:0 0 20px rgba(34,197,94,.3)}
-h3{margin-bottom:10px;color:#22c55e}
-.back{display:inline-block;margin-bottom:30px;color:#22c55e;text-decoration:none}
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+/* Body */
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    overflow-x:hidden;
+}
+
+/* Container */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+/* Back Button */
+
+.back{
+    display:inline-block;
+    margin-bottom:35px;
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back:hover{
+    transform:translateX(-4px);
+}
+
+/* Hero Section */
+
+.hero{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    border-radius:22px;
+    padding:60px 35px;
+    margin-bottom:50px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:48px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#9ca3af;
+    max-width:750px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+}
+
+/* Badge Section */
+
+.badges{
+    margin-top:28px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    margin:6px;
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:30px;
+    color:#22c55e;
+    font-size:14px;
+}
+
+/* Grid */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+}
+
+/* Cards */
+
+.card{
+    display:block;
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:28px;
+    border-radius:16px;
+    transition:.3s;
+    text-decoration:none;
+    color:#e6edf3;
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(34,197,94,.08),
+        transparent
+    );
+    transition:.6s;
+}
+
+.card:hover::before{
+    left:100%;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#22c55e;
+    box-shadow:0 0 25px rgba(34,197,94,.18);
+}
+
+/* Card Text */
+
+.card h3{
+    margin-bottom:12px;
+    color:#22c55e;
+    font-size:22px;
+}
+
+.card p{
+    color:#9ca3af;
+    line-height:1.7;
+    font-size:15px;
+}
+
+/* GitHub Section */
+
+.github-section{
+    margin-top:70px;
+}
+
+/* GitHub Card */
+
+.github-card{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    border-radius:20px;
+    padding:50px 30px;
+    text-align:center;
+}
+
+/* GitHub Heading */
+
+.github-card h2{
+    color:#22c55e;
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+/* GitHub Text */
+
+.github-card p{
+    color:#9ca3af;
+    max-width:720px;
+    margin:auto;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* Feature Grid */
+
+.github-features{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:30px;
+}
+
+/* Features */
+
+.feature{
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:12px 18px;
+    border-radius:10px;
+    color:#e6edf3;
+    font-size:14px;
+}
+
+/* GitHub Button */
+
+.github-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-top:35px;
+    padding:16px 30px;
+    background:linear-gradient(135deg,#22c55e,#16a34a);
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:14px;
+    font-weight:700;
+    font-size:16px;
+    transition:.3s;
+    box-shadow:0 0 25px rgba(34,197,94,.25);
+}
+
+.github-btn:hover{
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 0 40px rgba(34,197,94,.45);
+}
+
+/* Footer */
+
+.footer{
+    margin-top:80px;
+    text-align:center;
+    color:#6b7280;
+    padding-top:25px;
+    border-top:1px solid #1f2937;
+    font-size:14px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:38px;
+}
+
+.hero p{
+    font-size:16px;
+}
+
+}
+
 </style>
+
 </head>
+
 <body>
 
 <div class="container">
 
 <a class="back" href="../index.html">← Back to Portfolio</a>
 
+<!-- Hero Section -->
+
+<div class="hero">
+
 <h1>Networking Labs</h1>
-<p class="subtitle">Structured hands-on networking practice covering routing, switching, and core services.</p>
+
+<p>
+A structured collection of practical networking labs focused on routing, switching, VLANs, STP, subnetting, and enterprise network security concepts using Cisco Packet Tracer.
+</p>
+
+<div class="badges">
+
+<span class="badge">Cisco Packet Tracer</span>
+<span class="badge">Routing</span>
+<span class="badge">Switching</span>
+<span class="badge">Network Security</span>
+
+</div>
+
+</div>
+
+<!-- Lab Cards -->
 
 <div class="grid">
 
 <a href="static-routing/index.html" class="card">
+
 <h3>Static Routing</h3>
-<p>Manual route configuration and next-hop analysis.</p>
+
+<p>
+Manual route configuration, next-hop forwarding, and basic Layer 3 routing implementation.
+</p>
+
 </a>
 
 <a href="dynamic-routing/index.html" class="card">
+
 <h3>Dynamic Routing</h3>
-<p>Routing protocols and automated route learning.</p>
+
+<p>
+Routing protocol implementation and automatic route learning between routers.
+</p>
+
 </a>
 
 <a href="ip-subnetting/index.html" class="card">
+
 <h3>IP Subnetting</h3>
-<p>Subnet calculations and network segmentation practice.</p>
+
+<p>
+CIDR subnet calculations, network segmentation, and inter-subnet communication.
+</p>
+
 </a>
 
 <a href="stp/index.html" class="card">
-<h3>STP</h3>
-<p>Spanning Tree Protocol configuration and loop prevention.</p>
+
+<h3>STP Security</h3>
+
+<p>
+Spanning Tree Protocol attack simulation, Root Guard, and Layer 2 loop prevention.
+</p>
+
 </a>
 
 <a href="acl/index.html" class="card">
+
 <h3>ACL</h3>
-<p>Access Control Lists for traffic filtering and security.</p>
+
+<p>
+Access Control Lists for traffic filtering, packet control, and network security.
+</p>
+
 </a>
 
 <a href="Vlan-Trunking/index.html" class="card">
-<h3>Vlan-Trunking</h3>
-<p>Vlan-Trunking for communication between devices from different Network but same VLAN .</p> 
+
+<h3>VLAN Trunking</h3>
+
+<p>
+802.1Q trunking and VLAN communication across multiple switches.
+</p>
+
 </a>
 
-
 <a href="dhcp/index.html" class="card">
+
 <h3>DHCP</h3>
-<p>Dynamic Host Configuration Protocol setup and verification.</p>
+
+<p>
+Dynamic Host Configuration Protocol setup, IP assignment, and troubleshooting.
+</p>
+
 </a>
 
 <a href="roas/index.html" class="card">
-<h3>ROAS</h3>
-<p> Router-on-a-Stick </p>
+
+<h3>Router-On-A-Stick</h3>
+
+<p>
+Inter-VLAN Routing using subinterfaces and trunk links with 802.1Q encapsulation.
+</p>
+
 </a>
+
+</div>
+
+<!-- GitHub Section -->
+
+<div class="github-section">
+
+<div class="github-card">
+
+<h2>🚀 Explore Full Networking Labs Repository</h2>
+
+<p>
+Access complete Packet Tracer labs, configurations, screenshots, routing implementations, VLAN setups, STP security experiments, and enterprise networking practice directly from my GitHub repository.
+</p>
+
+<div class="github-features">
+
+<div class="feature">
+✅ Practical Networking Labs
+</div>
+
+<div class="feature">
+✅ Cisco Configurations
+</div>
+
+<div class="feature">
+✅ Packet Tracer Files
+</div>
+
+<div class="feature">
+✅ Routing & Switching
+</div>
+
+<div class="feature">
+✅ Network Security Concepts
+</div>
+
+</div>
+
+<a class="github-btn"
+href="https://github.com/vivekbisht4569/Networking-labs"
+target="_blank">
+
+🚀 View on GitHub
+
+</a>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+
+<p>
+Built & documented by Vivek Singh Bisht
+</p>
 
 </div>
 
 </div>
 
 </body>
+
 </html>
