@@ -1,38 +1,641 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<title>STP (Spanning Tree Protocol)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>STP Root Guard Security Lab</title>
+
 <style>
-body{background:#0b0f17;color:#e6edf3;font-family:Arial;line-height:1.7}
-.container{max-width:900px;margin:auto;padding:50px 20px}
-h1,h2{color:#22c55e}
-h2{margin-top:30px}
-.back{color:#22c55e;text-decoration:none}
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body */
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.7;
+}
+
+/* Container */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* Navigation */
+
+.back{
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:bold;
+    display:inline-block;
+    margin-bottom:30px;
+}
+
+/* Hero Section */
+
+.hero{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    border-radius:20px;
+    padding:60px 30px;
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.hero h1{
+    font-size:52px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#9ca3af;
+    font-size:18px;
+    max-width:750px;
+    margin:auto;
+}
+
+/* Badges */
+
+.badges{
+    margin-top:25px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    margin:6px;
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:30px;
+    color:#22c55e;
+    font-size:14px;
+}
+
+/* Sections */
+
+.section{
+    margin-top:60px;
+}
+
+.section h2{
+    color:#22c55e;
+    margin-bottom:20px;
+    font-size:34px;
+}
+
+.section h3{
+    margin-top:20px;
+    margin-bottom:10px;
+    color:#ffffff;
+}
+
+/* Cards */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.card{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:16px;
+    padding:25px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#22c55e;
+}
+
+.card h3{
+    color:#22c55e;
+    margin-bottom:10px;
+}
+
+/* Code Block */
+
+pre{
+    background:#111827;
+    border-left:4px solid #22c55e;
+    padding:18px;
+    border-radius:12px;
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+/* Images */
+
+.image-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin-top:25px;
+}
+
+.image-grid img{
+    width:100%;
+    border-radius:14px;
+    border:1px solid #1f2937;
+    transition:0.3s;
+}
+
+.image-grid img:hover{
+    transform:scale(1.02);
+}
+
+.caption{
+    text-align:center;
+    margin-top:8px;
+    color:#9ca3af;
+    font-size:14px;
+}
+
+/* GitHub Section */
+
+.github-section{
+    margin-top:70px;
+}
+
+.github-card{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    border-radius:20px;
+    padding:45px 30px;
+    text-align:center;
+}
+
+.github-card h2{
+    color:#22c55e;
+    margin-bottom:15px;
+    font-size:34px;
+}
+
+.github-card p{
+    color:#9ca3af;
+    max-width:700px;
+    margin:auto;
+    font-size:17px;
+}
+
+.github-features{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:30px;
+}
+
+.feature{
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:12px 18px;
+    border-radius:10px;
+    color:#e6edf3;
+    font-size:14px;
+}
+
+.github-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:16px 28px;
+    background:#22c55e;
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:16px;
+    transition:0.3s;
+    box-shadow:0 0 20px rgba(34,197,94,0.2);
+}
+
+.github-btn:hover{
+    background:#16a34a;
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(34,197,94,0.35);
+}
+
+/* Footer */
+
+.footer{
+    margin-top:70px;
+    text-align:center;
+    color:#6b7280;
+    padding:20px;
+    border-top:1px solid #1f2937;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:38px;
+}
+
+.section h2{
+    font-size:28px;
+}
+
+}
+
 </style>
+
 </head>
+
 <body>
+
 <div class="container">
 
 <a class="back" href="../index.html">← Back to Networking Labs</a>
 
-<h1>Spanning Tree Protocol (STP)</h1>
+<!-- Hero Section -->
 
-<h2>Definition</h2>
+<div class="hero">
+
+<h1>STP Root Guard Security Lab</h1>
+
 <p>
-STP is a Layer 2 protocol that prevents switching loops in networks with redundant paths.
+Practical implementation of Spanning Tree Protocol (STP) security using Root Guard to prevent rogue switches from becoming Root Bridge inside an enterprise Layer 2 network.
 </p>
 
-<h2>How It Works</h2>
+<div class="badges">
+
+<span class="badge">STP</span>
+<span class="badge">Root Guard</span>
+<span class="badge">Layer 2 Security</span>
+<span class="badge">Cisco Switching</span>
+
+
+</div>
+
+</div>
+
+<!-- Overview -->
+
+<div class="section">
+
+<h2>📘 Overview</h2>
+
 <p>
-STP elects a Root Bridge and blocks redundant paths while keeping one active path. Backup paths activate if the primary path fails.
+This lab demonstrates how an attacker switch can manipulate the Spanning Tree Protocol election process by advertising a lower bridge priority and becoming the Root Bridge of the network.
 </p>
 
-<h2>Where It Is Used</h2>
 <p>
-Used in enterprise LANs with multiple interconnected switches to prevent broadcast storms.
+The lab also demonstrates how Root Guard protects the network by preventing unauthorized switches from taking control of the STP topology.
 </p>
 
 </div>
+
+<!-- Lab Scenario -->
+
+<div class="section">
+
+<h2>🧪 Lab Scenario</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🌐 Initial Topology</h3>
+
+<p>
+S2 was configured as Root Bridge and S1 as Backup Root.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🚨 Rogue Switch Attack</h3>
+
+<p>
+An attacker switch attempted to become Root Bridge using lower bridge priority.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🛡️ Root Guard Protection</h3>
+
+<p>
+Root Guard blocked unauthorized STP manipulation and protected network topology.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- STP Attack -->
+
+<div class="section">
+
+<h2>🚨 STP Attack Simulation</h2>
+
+<p>
+The attacker switch was configured with the lowest STP bridge priority:
+</p>
+
+<pre>
+conf t
+spanning-tree vlan 1 priority 0
+</pre>
+
+<p>
+As a result, the rogue switch successfully became the new Root Bridge and changed the Layer 2 topology.
+</p>
+
+</div>
+
+<!-- Root Guard -->
+
+<div class="section">
+
+<h2>🛡️ Root Guard Configuration</h2>
+
+<p>
+Root Guard was configured on trusted switch ports to prevent rogue switches from becoming Root Bridge.
+</p>
+
+<pre>
+conf t
+interface range g1/0/1 - 24
+spanning-tree guard root
+</pre>
+
+<p>
+After reconnecting the attacker switch, ports entered:
+</p>
+
+<pre>
+root-inconsistent state
+</pre>
+
+<p>
+This successfully blocked unauthorized STP manipulation.
+</p>
+
+</div>
+
+<!-- Verification -->
+
+<div class="section">
+
+<h2>🔍 Verification Commands</h2>
+
+<pre>
+show spanning-tree
+
+show running-config | include spanning-tree
+</pre>
+
+</div>
+
+<!-- Key Learning -->
+
+<div class="section">
+
+<h2>🧠 Key Learning</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Root Bridge Election</h3>
+
+<p>
+Learned how switches elect Root Bridge using Bridge ID and priority.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>STP Attacks</h3>
+
+<p>
+Understood how rogue switches can manipulate Layer 2 topology.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Root Guard</h3>
+
+<p>
+Configured Root Guard to secure trusted switch ports.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Enterprise Security</h3>
+
+<p>
+Learned the importance of Layer 2 security inside enterprise networks.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Screenshots -->
+
+<div class="section">
+
+<h2>📸 Lab Screenshots</h2>
+
+<div class="image-grid">
+
+<div>
+
+<img src="images/01_Topology.png" alt="Topology">
+
+<p class="caption">
+STP Network Topology
+</p>
+
+</div>
+
+<div>
+
+<img src="images/02_Root_Bridge_check.png" alt="Root Bridge">
+
+<p class="caption">
+Root Bridge Election Verification
+</p>
+
+</div>
+
+<div>
+
+<img src="images/03_Make_attacker_root.png" alt="Attack">
+
+<p class="caption">
+Rogue Switch Becoming Root Bridge
+</p>
+
+</div>
+
+<div>
+
+<img src="images/06_enable_root_gueard.png" alt="Root Guard">
+
+<p class="caption">
+Root Guard Blocking Rogue Switch
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Outcome -->
+
+<div class="section">
+
+<h2>✅ Lab Outcome</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>STP Attack Simulation</h3>
+
+<p>
+Successfully demonstrated rogue switch manipulation inside Layer 2 topology.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Root Guard Protection</h3>
+
+<p>
+Prevented unauthorized Root Bridge election using Root Guard.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Security Understanding</h3>
+
+<p>
+Improved practical understanding of Layer 2 attack prevention.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Why Important -->
+
+<div class="section">
+
+<h2>🚀 Why STP Security Matters</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Prevents Rogue Switches</h3>
+
+<p>
+Protects enterprise networks from unauthorized topology manipulation.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Maintains Network Stability</h3>
+
+<p>
+Prevents traffic instability and malicious STP attacks.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Enterprise Security</h3>
+
+<p>
+Critical security concept for enterprise switching environments.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GitHub Section -->
+
+<div class="section github-section">
+
+<div class="github-card">
+
+<h2>🔗 Explore Full Project on GitHub</h2>
+
+
+
+</div>
+
+<a class="github-btn"
+href="https://github.com/vivekbisht4569/Networking-labs/tree/main/13%20STP/lab%201"
+target="_blank">
+
+🚀 View Project on GitHub
+
+</a>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+
+<p>
+Built & documented by Vivek Singh Bisht
+</p>
+
+</div>
+
+</div>
+
 </body>
+
 </html>
