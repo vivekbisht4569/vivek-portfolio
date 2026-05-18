@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Router On A Stick (ROAS)</title>
 
 <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
     background:#0b0f17;
@@ -13,91 +22,214 @@ body{
     line-height:1.7;
 }
 
+/* Container */
+
 .container{
-    max-width:900px;
+    max-width:1100px;
     margin:auto;
-    padding:50px 20px;
+    padding:40px 20px;
 }
 
-h1,h2{
+/* Hero Section */
+
+.hero{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    border-radius:20px;
+    padding:60px 30px;
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.hero h1{
+    font-size:52px;
     color:#22c55e;
+    margin-bottom:15px;
 }
 
-h3{
-    margin-top:20px;
+.hero p{
+    color:#9ca3af;
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
 }
+
+.badges{
+    margin-top:25px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    margin:6px;
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:30px;
+    color:#22c55e;
+    font-size:14px;
+}
+
+/* Navigation */
 
 .back{
     color:#22c55e;
     text-decoration:none;
+    font-weight:bold;
+    display:inline-block;
+    margin-bottom:30px;
 }
 
-pre{
+/* Sections */
+
+.section{
+    margin-top:60px;
+}
+
+.section h2{
+    color:#22c55e;
+    margin-bottom:20px;
+    font-size:34px;
+}
+
+.section h3{
+    margin-top:20px;
+    margin-bottom:10px;
+    color:#ffffff;
+}
+
+/* Paragraph */
+
+p{
+    color:#cbd5e1;
+}
+
+/* Cards */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.card{
     background:#111827;
-    padding:15px;
-    border-radius:8px;
-    overflow-x:auto;
+    border:1px solid #1f2937;
+    border-radius:16px;
+    padding:25px;
+    transition:0.3s;
 }
 
-ul{
-    margin-top:10px;
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#22c55e;
 }
+
+.card h3{
+    color:#22c55e;
+    margin-bottom:10px;
+}
+
+/* Table */
 
 table{
     width:100%;
     border-collapse:collapse;
-    margin-top:10px;
-}
-
-th,td{
-    border:1px solid #1f2937;
-    padding:10px;
+    margin-top:20px;
+    overflow:hidden;
+    border-radius:12px;
 }
 
 th{
     background:#111827;
+    color:#22c55e;
 }
 
-.section{
-    margin-top:40px;
+th,td{
+    border:1px solid #1f2937;
+    padding:14px;
+    text-align:left;
 }
 
-/* Image grid styling */
+/* Code */
+
+pre{
+    background:#111827;
+    border-left:4px solid #22c55e;
+    padding:18px;
+    border-radius:12px;
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+/* Image Section */
 
 .image-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-    margin-top:20px;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin-top:25px;
 }
 
 .image-grid img{
     width:100%;
-    border-radius:8px;
+    border-radius:14px;
     border:1px solid #1f2937;
+    transition:0.3s;
+}
+
+.image-grid img:hover{
+    transform:scale(1.02);
 }
 
 .caption{
     text-align:center;
-    font-size:14px;
+    margin-top:8px;
     color:#9ca3af;
-    margin-top:6px;
+    font-size:14px;
 }
+
+/* GitHub Button */
 
 .github-btn{
     display:inline-block;
     margin-top:20px;
-    padding:12px 20px;
+    padding:14px 24px;
     background:#22c55e;
     color:#0b0f17;
     text-decoration:none;
-    border-radius:8px;
+    border-radius:10px;
     font-weight:bold;
     transition:0.3s;
 }
 
 .github-btn:hover{
     background:#16a34a;
+    transform:translateY(-2px);
+}
+
+/* Footer */
+
+.footer{
+    margin-top:70px;
+    text-align:center;
+    color:#6b7280;
+    padding:20px;
+    border-top:1px solid #1f2937;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:38px;
+}
+
+.section h2{
+    font-size:28px;
+}
+
 }
 
 </style>
@@ -109,44 +241,85 @@ th{
 
 <a class="back" href="../index.html">← Back to Networking Labs</a>
 
+<!-- Hero Section -->
+
+<div class="hero">
+
 <h1>Router On A Stick (ROAS)</h1>
 
+<p>
+Inter-VLAN Routing using a Single Router Interface with 802.1Q Trunking in Cisco Packet Tracer.
+</p>
+
+<div class="badges">
+<span class="badge">Cisco Packet Tracer</span>
+<span class="badge">VLAN</span>
+<span class="badge">ROAS</span>
+<span class="badge">802.1Q</span>
+<span class="badge">Inter-VLAN Routing</span>
+<span class="badge">CCNA Lab</span>
+</div>
+
+</div>
+
+<!-- Definition -->
+
 <div class="section">
 
-<h2>Definition</h2>
+<h2>📘 What is Router On A Stick?</h2>
 
 <p>
-Router-on-a-Stick (ROAS) is a networking technique used to enable communication between multiple VLANs using a single physical router interface.
+Router-on-a-Stick (ROAS) is a networking technique used to allow communication between multiple VLANs using a single physical router interface.
 </p>
 
 <p>
-It is called <b>"stick"</b> because only one physical cable connects the router to the switch while carrying traffic from multiple VLANs.
+Instead of using separate router interfaces for each VLAN, a single interface is divided into multiple logical subinterfaces using 802.1Q encapsulation.
 </p>
 
 </div>
 
+<!-- Lab Scenario -->
+
 <div class="section">
 
-<h2>Lab Scenario</h2>
+<h2>🧪 Lab Scenario</h2>
 
 <p>
-In this lab, I created a multi-switch VLAN environment with Inter-VLAN Routing using Router-on-a-Stick.
+In this lab, I created a multi-switch VLAN environment where devices from different departments communicate through a router using Inter-VLAN Routing.
 </p>
 
-<ul>
-<li>🟦 VLAN 10 → IT Department</li>
-<li>🟨 VLAN 20 → Accounts Department</li>
-</ul>
+<div class="cards">
 
+<div class="card">
+<h3>🟦 VLAN 10</h3>
 <p>
-Two switches were connected using a trunk link, and a Cisco router was configured with subinterfaces to route traffic between VLANs.
+IT Department Network
 </p>
+</div>
+
+<div class="card">
+<h3>🟨 VLAN 20</h3>
+<p>
+Accounts Department Network
+</p>
+</div>
+
+<div class="card">
+<h3>🌐 Goal</h3>
+<p>
+Enable communication between different VLANs using Router-on-a-Stick.
+</p>
+</div>
 
 </div>
 
+</div>
+
+<!-- IP Addressing -->
+
 <div class="section">
 
-<h2>IP Addressing Scheme</h2>
+<h2>🌍 IP Addressing Scheme</h2>
 
 <table>
 
@@ -175,55 +348,11 @@ Two switches were connected using a trunk link, and a Cisco router was configure
 
 </div>
 
-<div class="section">
-
-<h2>How It Works</h2>
-
-<h3>Switch Side</h3>
-
-<p>
-The switch ports connected between switches and router were configured as trunk ports.
-</p>
-
-<pre>
-interface fa0/5
- switchport mode trunk
-
-interface fa0/6
- switchport mode trunk
-</pre>
-
-<p>
-This allows VLAN traffic from multiple VLANs to travel through a single connection.
-</p>
-
-<h3>Router Side</h3>
-
-<p>
-The router uses subinterfaces to act as default gateways for each VLAN.
-</p>
-
-<pre>
-interface fa0/0.10
- encapsulation dot1Q 10
- ip address 192.168.10.1 255.255.255.0
-
-interface fa0/0.20
- encapsulation dot1Q 20
- ip address 192.168.20.1 255.255.255.0
-</pre>
-
-<ul>
-<li>Each subinterface is linked to a VLAN.</li>
-<li>The router performs routing between VLANs.</li>
-<li>Devices use router IP as default gateway.</li>
-</ul>
-
-</div>
+<!-- Switch Config -->
 
 <div class="section">
 
-<h2>What I Configured</h2>
+<h2>🔧 Switch Configuration</h2>
 
 <h3>VLAN Creation</h3>
 
@@ -247,7 +376,7 @@ interface range fa0/3 - 4
  switchport access vlan 20
 </pre>
 
-<h3>Trunk Configuration</h3>
+<h3>Trunk Port Configuration</h3>
 
 <pre>
 interface fa0/5
@@ -259,56 +388,187 @@ interface fa0/6
 
 </div>
 
-<div class="section">
-
-<h2>Testing Results</h2>
-
-<ul>
-<li>✅ Devices within same VLAN communicated successfully</li>
-<li>✅ VLAN 10 devices communicated with VLAN 20 devices through router</li>
-<li>✅ Inter-VLAN routing worked correctly</li>
-</ul>
-
-</div>
+<!-- Router Config -->
 
 <div class="section">
 
-<h2>Key Learning</h2>
-
-<ul>
-<li>ROAS uses one physical router interface for multiple VLANs</li>
-<li>802.1Q tagging is required for VLAN identification</li>
-<li>Subinterfaces act as gateways for VLANs</li>
-<li>Trunk ports carry traffic for multiple VLANs</li>
-<li>Inter-VLAN communication requires Layer 3 routing</li>
-</ul>
-
-</div>
-
-<div class="section">
-
-<h2>Why Router-on-a-Stick Is Important</h2>
-
-<ul>
-<li>Reduces cabling complexity</li>
-<li>Uses fewer router interfaces</li>
-<li>More scalable than legacy inter-VLAN routing</li>
-<li>Widely used in small and medium enterprise networks</li>
-</ul>
-
-</div>
-
-<div class="section">
-
-<h2>View Full Project on GitHub</h2>
+<h2>🛜 Router Configuration</h2>
 
 <p>
-You can view the complete lab setup, screenshots, and configurations on my GitHub repository:
+The router uses subinterfaces to route traffic between VLANs.
 </p>
 
-<a class="github-btn" href="https://github.com/vivekbisht4569/Networking-labs/tree/main/05%20Router-On-A-Stick/lab%201" target="_blank">
+<pre>
+interface fa0/0.10
+ encapsulation dot1Q 10
+ ip address 192.168.10.1 255.255.255.0
+
+interface fa0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+</pre>
+
+</div>
+
+<!-- Lab Outcome -->
+
+<div class="section">
+
+<h2>✅ Lab Outcome</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>✅ VLAN Communication</h3>
+<p>
+Devices inside the same VLAN communicated successfully.
+</p>
+</div>
+
+<div class="card">
+<h3>✅ Inter-VLAN Routing</h3>
+<p>
+Devices from VLAN 10 and VLAN 20 communicated through the router.
+</p>
+</div>
+
+<div class="card">
+<h3>✅ Trunk Verification</h3>
+<p>
+802.1Q trunk links carried multiple VLAN traffic correctly.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Key Learning -->
+
+<div class="section">
+
+<h2>🧠 Key Learning</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Subinterfaces</h3>
+<p>
+Learned how routers use logical interfaces for VLAN routing.
+</p>
+</div>
+
+<div class="card">
+<h3>802.1Q Trunking</h3>
+<p>
+Learned how VLAN traffic is tagged across trunk links.
+</p>
+</div>
+
+<div class="card">
+<h3>Default Gateways</h3>
+<p>
+Understood how gateways enable communication between networks.
+</p>
+</div>
+
+<div class="card">
+<h3>Inter-VLAN Routing</h3>
+<p>
+Learned Layer 3 communication between separate VLANs.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Screenshots -->
+
+<div class="section">
+
+<h2>📸 Lab Screenshots</h2>
+
+<div class="image-grid">
+
+<div>
+<img src="images/01_Topology.png" alt="Topology">
+<p class="caption">
+Router On A Stick Network Topology
+</p>
+</div>
+
+<div>
+<img src="images/11_ping_success.png" alt="Ping Test">
+<p class="caption">
+Successful Inter-VLAN Communication
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- Why Important -->
+
+<div class="section">
+
+<h2>🚀 Why Router-On-A-Stick Matters</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Reduced Cabling</h3>
+<p>
+Multiple VLANs use one physical router interface.
+</p>
+</div>
+
+<div class="card">
+<h3>Scalable Design</h3>
+<p>
+Efficient for small and medium enterprise networks.
+</p>
+</div>
+
+<div class="card">
+<h3>Cost Effective</h3>
+<p>
+Fewer physical interfaces required.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- GitHub -->
+
+<div class="section">
+
+<h2>🔗 View Full Project</h2>
+
+<p>
+View the complete lab setup, configurations, screenshots, and Packet Tracer files on GitHub.
+</p>
+
+<a class="github-btn"
+href="https://github.com/vivekbisht4569/Networking-labs/tree/main/05%20Router-On-A-Stick"
+target="_blank">
+
 🚀 View on GitHub
+
 </a>
+
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+
+<p>
+Built by Vixi • Networking & Cybersecurity Portfolio
+</p>
 
 </div>
 
