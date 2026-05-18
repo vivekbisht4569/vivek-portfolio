@@ -1,75 +1,656 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>IP Subnetting</title>
+
 <style>
-body{background:#0b0f17;color:#e6edf3;font-family:Arial;line-height:1.7}
-.container{max-width:900px;margin:auto;padding:50px 20px}
-h1,h2{color:#22c55e}
-h2{margin-top:30px}
-.back{color:#22c55e;text-decoration:none}
-img{width:100%;margin-top:15px;border-radius:10px}
+
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body */
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    font-family:Arial, Helvetica, sans-serif;
+    line-height:1.7;
+}
+
+/* Container */
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* Navigation */
+
+.back{
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:bold;
+    display:inline-block;
+    margin-bottom:30px;
+}
+
+/* Hero Section */
+
+.hero{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    border-radius:20px;
+    padding:60px 30px;
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.hero h1{
+    font-size:52px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#9ca3af;
+    font-size:18px;
+    max-width:750px;
+    margin:auto;
+}
+
+/* Badges */
+
+.badges{
+    margin-top:25px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 18px;
+    margin:6px;
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:30px;
+    color:#22c55e;
+    font-size:14px;
+}
+
+/* Sections */
+
+.section{
+    margin-top:60px;
+}
+
+.section h2{
+    color:#22c55e;
+    margin-bottom:20px;
+    font-size:34px;
+}
+
+.section h3{
+    margin-top:20px;
+    margin-bottom:10px;
+    color:#ffffff;
+}
+
+/* Cards */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:25px;
+}
+
+.card{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:16px;
+    padding:25px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#22c55e;
+}
+
+.card h3{
+    color:#22c55e;
+    margin-bottom:10px;
+}
+
+/* Code Block */
+
+pre{
+    background:#111827;
+    border-left:4px solid #22c55e;
+    padding:18px;
+    border-radius:12px;
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+/* Image Grid */
+
+.image-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin-top:25px;
+}
+
+.image-grid img{
+    width:100%;
+    border-radius:14px;
+    border:1px solid #1f2937;
+    transition:0.3s;
+}
+
+.image-grid img:hover{
+    transform:scale(1.02);
+}
+
+.caption{
+    text-align:center;
+    margin-top:8px;
+    color:#9ca3af;
+    font-size:14px;
+}
+
+/* Table */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+th{
+    background:#111827;
+    color:#22c55e;
+}
+
+th,td{
+    border:1px solid #1f2937;
+    padding:14px;
+    text-align:left;
+}
+
+/* GitHub Section */
+
+.github-section{
+    margin-top:70px;
+}
+
+.github-card{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    border-radius:20px;
+    padding:45px 30px;
+    text-align:center;
+}
+
+.github-card h2{
+    color:#22c55e;
+    margin-bottom:15px;
+    font-size:34px;
+}
+
+.github-card p{
+    color:#9ca3af;
+    max-width:700px;
+    margin:auto;
+    font-size:17px;
+}
+
+.github-features{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:30px;
+}
+
+.feature{
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:12px 18px;
+    border-radius:10px;
+    color:#e6edf3;
+    font-size:14px;
+}
+
+.github-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:16px 28px;
+    background:#22c55e;
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:bold;
+    font-size:16px;
+    transition:0.3s;
+    box-shadow:0 0 20px rgba(34,197,94,0.2);
+}
+
+.github-btn:hover{
+    background:#16a34a;
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(34,197,94,0.35);
+}
+
+/* Footer */
+
+.footer{
+    margin-top:70px;
+    text-align:center;
+    color:#6b7280;
+    padding:20px;
+    border-top:1px solid #1f2937;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:38px;
+}
+
+.section h2{
+    font-size:28px;
+}
+
+}
+
 </style>
+
 </head>
+
 <body>
+
 <div class="container">
 
 <a class="back" href="../index.html">← Back to Networking Labs</a>
 
+<!-- Hero Section -->
+
+<div class="hero">
+
 <h1>IP Subnetting</h1>
 
-<h2>Overview</h2>
 <p>
-IP subnetting is the process of dividing a larger network into smaller sub-networks to improve efficiency and organization.
+Designing and dividing networks into smaller subnetworks for better scalability, organization, security, and efficient IP address utilization.
 </p>
 
-<h2>Example</h2>
+<div class="badges">
+
+<span class="badge">Subnetting</span>
+<span class="badge">CIDR</span>
+<span class="badge">Layer 3 Switching</span>
+<span class="badge">Inter-Subnet Communication</span>
+<span class="badge">CCNA Lab</span>
+
+</div>
+
+</div>
+
+<!-- Overview -->
+
+<div class="section">
+
+<h2>📘 Overview</h2>
+
 <p>
-A network <b>192.168.10.0/24</b> divided into 4 subnets using <b>/26</b>:
+IP subnetting is the process of dividing a larger network into multiple smaller subnetworks (subnets) to improve efficiency and network management.
 </p>
 
 <p>
-- 192.168.10.0 – 63<br>
-- 192.168.10.64 – 127<br>
-- 192.168.10.128 – 191<br>
-- 192.168.10.192 – 255
-</p>
-
-<h2>Topology</h2>
-<p>
-Basic network topology created to test subnet communication using a multilayer switch.
-</p>
-<img src="images/01_topology.png" alt="Network Topology">
-
-<h2>IP Configuration</h2>
-<p>
-Devices were assigned IP addresses based on their respective subnets along with correct default gateways.
-</p>
-<img src="images/03_ip_assign.png" alt="IP Configuration">
-
-<h2>Switch Configuration</h2>
-<p>
-Switch ports were converted to Layer 3 and assigned IP addresses to act as gateways for each subnet.
-</p>
-<img src="images/02_switchportmode.png" alt="Switch Configuration">
-
-<h2>Connectivity Test</h2>
-<p>
-Successful communication between devices in different subnets was verified using ping.
-</p>
-<img src="images/ping2.png" alt="Ping Test">
-
-<h2>Key Concepts</h2>
-<p>
-- Subnet mask and CIDR notation<br>
-- Network and broadcast address<br>
-- Default gateway concept<br>
-- Layer 2 vs Layer 3 switching<br>
-- Inter-subnet communication
+Subnetting reduces broadcast traffic, improves scalability, and enables better organization inside enterprise networks.
 </p>
 
 </div>
+
+<!-- Lab Scenario -->
+
+<div class="section">
+
+<h2>🧪 Lab Scenario</h2>
+
+<p>
+In this lab, a Class C network was divided into multiple smaller subnets using CIDR notation and configured on a multilayer switch to test communication between subnets.
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🌐 Network Division</h3>
+
+<p>
+A /24 network was subnetted into smaller /26 subnetworks.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🛜 Layer 3 Switching</h3>
+
+<p>
+Switch Virtual Interfaces (SVIs) were configured as gateways for inter-subnet communication.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>✅ Connectivity Testing</h3>
+
+<p>
+Ping tests verified successful communication between different subnets.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Subnet Example -->
+
+<div class="section">
+
+<h2>🧠 Subnetting Example</h2>
+
+<p>
+The following network:
+</p>
+
+<pre>
+192.168.10.0/24
+</pre>
+
+<p>
+was divided into 4 smaller subnets using:
+</p>
+
+<pre>
+/26
+</pre>
+
+<pre>
+192.168.10.0   - 192.168.10.63
+192.168.10.64  - 192.168.10.127
+192.168.10.128 - 192.168.10.191
+192.168.10.192 - 192.168.10.255
+</pre>
+
+</div>
+
+<!-- Key Concepts -->
+
+<div class="section">
+
+<h2>🔑 Key Concepts Learned</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Subnet Mask</h3>
+
+<p>
+Learned how subnet masks separate network and host portions.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>CIDR Notation</h3>
+
+<p>
+Understood prefix lengths such as /24 and /26.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Broadcast Address</h3>
+
+<p>
+Learned usable host ranges and reserved addresses.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Default Gateway</h3>
+
+<p>
+Configured gateways for communication between networks.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Configuration -->
+
+<div class="section">
+
+<h2>⚙️ Configuration</h2>
+
+<h3>Layer 3 Switch Configuration</h3>
+
+<pre>
+interface gig1/0/1
+no switchport
+ip address 192.168.10.1 255.255.255.192
+no shutdown
+</pre>
+
+<h3>Host Configuration</h3>
+
+<pre>
+PC1:
+
+IP Address: 192.168.10.10
+Subnet Mask: 255.255.255.192
+Default Gateway: 192.168.10.1
+</pre>
+
+</div>
+
+<!-- Screenshots -->
+
+<div class="section">
+
+<h2>📸 Lab Screenshots</h2>
+
+<div class="image-grid">
+
+<div>
+
+<img src="images/01_topology.png" alt="Topology">
+
+<p class="caption">
+Network Topology Setup
+</p>
+
+</div>
+
+<div>
+
+<img src="images/02_switchportmode.png" alt="Switch Config">
+
+<p class="caption">
+Layer 3 Switch Port Configuration
+</p>
+
+</div>
+
+<div>
+
+<img src="images/03_ip_assign.png" alt="IP Config">
+
+<p class="caption">
+IP Address Assignment
+</p>
+
+</div>
+
+<div>
+
+<img src="images/ping2.png" alt="Ping Test">
+
+<p class="caption">
+Successful Connectivity Verification
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Outcome -->
+
+<div class="section">
+
+<h2>✅ Lab Outcome</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Efficient Network Segmentation</h3>
+
+<p>
+Successfully divided a large network into multiple manageable subnetworks.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Inter-Subnet Communication</h3>
+
+<p>
+Devices in different subnets communicated successfully.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Practical Layer 3 Understanding</h3>
+
+<p>
+Improved understanding of routing and gateway concepts.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Why Important -->
+
+<div class="section">
+
+<h2>🚀 Why IP Subnetting Matters</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Better Organization</h3>
+
+<p>
+Helps divide large networks into manageable sections.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Reduced Broadcast Traffic</h3>
+
+<p>
+Improves network efficiency and performance.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Scalability & Security</h3>
+
+<p>
+Supports scalable and secure enterprise network design.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- GitHub Section -->
+
+<div class="section github-section">
+
+<div class="github-card">
+
+<h2>🔗 Explore Full Project on GitHub</h2>
+
+</div>
+
+<a class="github-btn"
+href="https://github.com/vivekbisht4569/Networking-labs/tree/main/02%20IP%20Subnetting"
+target="_blank">
+
+🚀 View Project on GitHub
+
+</a>
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<div class="footer">
+
+<p>
+Built & documented by Vivek Singh Bisht
+</p>
+
+</div>
+
+</div>
+
 </body>
 </html>
