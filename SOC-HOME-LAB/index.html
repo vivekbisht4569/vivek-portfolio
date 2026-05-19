@@ -1,5 +1,7 @@
+```html id="yo3y5f"
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -24,11 +26,15 @@ body{
     overflow-x:hidden;
 }
 
+/* MAIN CONTAINER */
+
 .container{
     max-width:1150px;
     margin:auto;
     padding:70px 20px;
 }
+
+/* BACK BUTTON */
 
 .back{
     display:inline-block;
@@ -43,32 +49,40 @@ body{
     opacity:.8;
 }
 
+/* HEADING */
+
 h1{
     font-size:42px;
     margin-bottom:12px;
     color:#22c55e;
 }
 
+/* SUBTITLE */
+
 .subtitle{
     color:#9ca3af;
-    margin-bottom:45px;
+    margin-bottom:50px;
     font-size:17px;
-    line-height:1.7;
-    max-width:800px;
+    line-height:1.8;
+    max-width:850px;
 }
+
+/* GRID */
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:25px;
 }
+
+/* CARD */
 
 .card{
     display:block;
     background:#111827;
     border:1px solid #1f2937;
-    padding:28px;
-    border-radius:16px;
+    padding:30px;
+    border-radius:18px;
     transition:.3s;
     text-decoration:none;
     color:#e6edf3;
@@ -95,20 +109,28 @@ h1{
 .card:hover{
     transform:translateY(-8px);
     border-color:#22c55e;
-    box-shadow:0 0 30px rgba(34,197,94,.15);
+    box-shadow:0 0 35px rgba(34,197,94,.15);
 }
 
+/* CARD TITLE */
+
 h3{
-    margin-bottom:12px;
+    margin-bottom:14px;
     color:#22c55e;
-    font-size:22px;
+    font-size:23px;
+    line-height:1.5;
 }
+
+/* CARD TEXT */
 
 .card p{
     color:#cbd5e1;
-    line-height:1.7;
-    margin-bottom:20px;
+    line-height:1.8;
+    margin-bottom:22px;
+    font-size:15px;
 }
+
+/* TAGS */
 
 .tags{
     display:flex;
@@ -125,6 +147,8 @@ h3{
     color:#9ca3af;
 }
 
+/* STATUS */
+
 .status{
     display:inline-block;
     margin-top:20px;
@@ -133,21 +157,34 @@ h3{
     font-weight:600;
 }
 
+/* GITHUB BUTTON */
+
 .github-btn{
     display:inline-block;
-    margin-top:40px;
-    padding:14px 22px;
+    margin-top:45px;
+    padding:14px 24px;
     background:#22c55e;
     color:#0b0f17;
     text-decoration:none;
-    border-radius:10px;
-    font-weight:bold;
+    border-radius:12px;
+    font-weight:700;
     transition:.3s;
 }
 
 .github-btn:hover{
     background:#16a34a;
     transform:translateY(-2px);
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:70px;
+    padding-top:30px;
+    border-top:1px solid #1f2937;
+    color:#6b7280;
+    font-size:14px;
 }
 
 </style>
@@ -163,7 +200,7 @@ h3{
 <h1>🛡️ SOC Home Lab</h1>
 
 <p class="subtitle">
-Hands-on cybersecurity home lab focused on SOC analysis, attack simulation, Windows event log investigation, and detection engineering using Kali Linux, Windows 11, and VirtualBox in an isolated sandbox environment.
+Hands-on cybersecurity home lab focused on SOC analysis, packet investigation, attack simulation, Windows log monitoring, and detection engineering using Kali Linux, Windows 11, Wireshark, and VirtualBox in an isolated sandbox environment.
 </p>
 
 <div class="grid">
@@ -172,67 +209,69 @@ Hands-on cybersecurity home lab focused on SOC analysis, attack simulation, Wind
 
 <a href="Lab 1/index.html" class="card">
 
-<h3>LAB 1 — Nmap Detection & Log Analysis</h3>
+<h3>🪟 LAB 1 — Windows Event Log Analysis & Nmap Detection</h3>
 
 <p>
-Built an isolated sandbox lab using Kali Linux and Windows 11 to simulate reconnaissance attacks using Nmap and analyze Windows Event Viewer logs for inbound traffic detection and event correlation.
+Built an isolated sandbox lab using Kali Linux and Windows 11 to simulate reconnaissance activity using Nmap and analyze Windows Event Viewer logs for inbound traffic detection and event correlation.
 </p>
 
 <div class="tags">
-<span class="tag">Kali Linux</span>
-<span class="tag">Nmap</span>
 <span class="tag">Windows Logs</span>
+<span class="tag">Nmap</span>
+<span class="tag">Event Viewer</span>
 <span class="tag">VirtualBox</span>
 <span class="tag">SOC</span>
 <span class="tag">Detection Engineering</span>
 </div>
 
-
-
 </a>
 
-
+<!-- LAB 2 -->
 
 <a href="Lab 2/index.html" class="card">
 
-<h3>LAB 2 — 🌐 Network Reconnaissance & Wireshark Traffic Analysis</h3>
+<h3>🌐 LAB 2 — Packet Analysis & Wireshark Traffic Investigation</h3>
 
 <p>
-Planned SOC monitoring lab focused on Network Reconnaissance and Packet Analysis 
+Performed packet analysis using Wireshark to monitor ICMP communication, TCP traffic, reconnaissance activity, and SYN scan behavior generated from Kali Linux using Nmap.
 </p>
 
 <div class="tags">
-<span class="tag">Nmap</span>
 <span class="tag">Wireshark</span>
-<span class="tag">Monitoring</span>
-<span class="tag">VirtualBox</span>
-<span class="tag">Blue Team</span>
-<span class="tag">Detection Engineering</span>
+<span class="tag">Packet Analysis</span>
+<span class="tag">TCP/IP</span>
+<span class="tag">Nmap</span>
+<span class="tag">Reconnaissance</span>
+<span class="tag">Network Visibility</span>
 </div>
 
+</a>
 
-</a> 
+<!-- FUTURE LAB -->
 
-<!-- FUTURE LAB 
+<!--
 
 <a href="#" class="card">
 
-<h3>LAB 3 — Failed Login Detection</h3>
+<h3>🛡️ LAB 3 — Sysmon Process Monitoring</h3>
 
 <p>
-Planned attack simulation lab focused on brute-force login attempts, Windows authentication logs, Event ID 4625 analysis, and suspicious login detection workflows.
+Planned endpoint monitoring lab focused on Sysmon telemetry, process creation events, PowerShell monitoring, and suspicious process investigation.
 </p>
 
 <div class="tags">
-<span class="tag">Authentication Logs</span>
-<span class="tag">Windows Security</span>
-<span class="tag">Event ID 4625</span>
+<span class="tag">Sysmon</span>
+<span class="tag">Windows Telemetry</span>
+<span class="tag">Process Monitoring</span>
 <span class="tag">Blue Team</span>
+<span class="tag">Threat Hunting</span>
 </div>
 
-<span class="status">📝 Planned</span>
+<span class="status">🚧 In Progress</span>
 
-</a> --> 
+</a>
+
+-->
 
 </div>
 
@@ -240,14 +279,12 @@ Planned attack simulation lab focused on brute-force login attempts, Windows aut
 🚀 View on GitHub
 </a>
 
-</div>
-
 <div class="footer">
-Built & documented by Vivek Singh Bisht
+Built & Documented by Vivek Singh Bisht
 </div>
-
 
 </div>
 
 </body>
 </html>
+```
