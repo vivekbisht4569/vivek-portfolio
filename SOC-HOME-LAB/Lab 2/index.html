@@ -1,0 +1,460 @@
+```html id="lqvjlwm"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lab 2 - Network Reconnaissance & Wireshark Analysis | Vivek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    line-height:1.7;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+}
+
+.back{
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:600;
+    display:inline-block;
+    margin-bottom:35px;
+}
+
+.hero{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    padding:45px;
+    border-radius:22px;
+    margin-bottom:35px;
+    box-shadow:0 0 30px rgba(0,0,0,.3);
+}
+
+.hero h1{
+    font-size:46px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#cbd5e1;
+    font-size:17px;
+    max-width:850px;
+}
+
+.section{
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:32px;
+    border-radius:18px;
+    margin-bottom:30px;
+    transition:.3s;
+}
+
+.section:hover{
+    border-color:#22c55e;
+    transform:translateY(-2px);
+}
+
+h2{
+    color:#22c55e;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+p{
+    color:#d1d5db;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:12px;
+    color:#d1d5db;
+}
+
+.tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.tech{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:14px;
+    color:#cbd5e1;
+}
+
+pre{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:18px;
+    border-radius:12px;
+    color:#22c55e;
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+.image-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:30px;
+    margin-top:25px;
+}
+
+.image-card{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    border-radius:18px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.image-card:hover{
+    transform:translateY(-3px);
+    border-color:#22c55e;
+}
+
+.image-card img{
+    width:100%;
+    display:block;
+}
+
+.image-caption{
+    padding:20px;
+    color:#cbd5e1;
+}
+
+.step{
+    color:#22c55e;
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.highlight{
+    color:#22c55e;
+    font-weight:600;
+}
+
+.github-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 24px;
+    background:#22c55e;
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.github-btn:hover{
+    background:#16a34a;
+    transform:translateY(-2px);
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#6b7280;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="../index.html" class="back">← Back to Projects</a>
+
+<div class="hero">
+
+<h1>🌐 Lab 2 - Network Reconnaissance & Wireshark Traffic Analysis</h1>
+
+<p>
+A practical SOC-style cybersecurity lab focused on 
+<span class="highlight">network reconnaissance detection</span>, 
+<span class="highlight">packet analysis</span>, and 
+<span class="highlight">traffic monitoring</span> using 
+Wireshark, Nmap, Kali Linux, and VirtualBox in an isolated lab environment.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>🎯 Objective</h2>
+
+<p>
+The objective of this lab was to simulate attacker reconnaissance activity and analyze generated network traffic using Wireshark. This project helped develop foundational SOC Analyst and Blue Team investigation skills related to packet analysis, TCP/IP communication, reconnaissance detection, and network visibility troubleshooting.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>🏗️ Lab Architecture</h2>
+
+<pre>
+Kali Linux VM (Attacker)
+        │
+Nmap / ICMP / TCP Traffic
+        │
+        ▼
+Windows Host Machine
+        │
+        ▼
+Wireshark Packet Analysis
+</pre>
+
+</div>
+
+<div class="section">
+
+<h2>⚙️ Environment Setup</h2>
+
+<ul>
+<li><strong>Host OS:</strong> Windows</li>
+<li><strong>Attacker Machine:</strong> Kali Linux VM</li>
+<li><strong>Virtualization:</strong> VirtualBox</li>
+<li><strong>Network Mode:</strong> Host-Only Adapter</li>
+<li><strong>Packet Analyzer:</strong> Wireshark</li>
+<li><strong>Recon Tool:</strong> Nmap</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>🔍 Network Reconnaissance Activities</h2>
+
+<p>
+Generated ICMP traffic and reconnaissance scans from Kali Linux to the Windows host machine and analyzed captured traffic inside Wireshark.
+</p>
+
+<pre>
+ping 192.168.56.1
+</pre>
+
+<pre>
+nmap 192.168.56.1
+</pre>
+
+</div>
+
+<div class="section">
+
+<h2>🛡️ Detection & Traffic Analysis</h2>
+
+<ul>
+<li>Captured ICMP Echo Requests and Replies</li>
+<li>Analyzed TCP SYN packets</li>
+<li>Observed reconnaissance scanning behavior</li>
+<li>Detected attacker source IP traffic</li>
+<li>Filtered packets using Wireshark display filters</li>
+<li>Analyzed packet details and protocol headers</li>
+<li>Investigated network visibility issues</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>🧰 Technologies Used</h2>
+
+<div class="tech-stack">
+<div class="tech">Kali Linux</div>
+<div class="tech">Wireshark</div>
+<div class="tech">Nmap</div>
+<div class="tech">VirtualBox</div>
+<div class="tech">TCP/IP</div>
+<div class="tech">Packet Analysis</div>
+<div class="tech">Networking</div>
+<div class="tech">SOC Fundamentals</div>
+<div class="tech">Blue Teaming</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>📸 Step-by-Step Lab Screenshots</h2>
+
+<div class="image-grid">
+
+<div class="image-card">
+<img src="Images/01_Kali_ifconfig.png" alt="Kali Linux IP Configuration">
+<div class="image-caption">
+
+<div class="step">Step 1 — Kali Linux IP Configuration</div>
+
+Verified the Kali Linux attacker machine IP address using the <strong>ip a</strong> command before starting reconnaissance activities.
+
+<pre>
+ip a
+</pre>
+
+</div>
+</div>
+
+<div class="image-card">
+<img src="Images/02_Windows_ipconfig.png" alt="Windows IP Configuration">
+<div class="image-caption">
+
+<div class="step">Step 2 — Windows Host IP Identification</div>
+
+Verified the Windows host machine IP address using <strong>ipconfig</strong> to confirm communication between attacker and target systems.
+
+<pre>
+ipconfig
+</pre>
+
+</div>
+</div>
+
+<div class="image-card">
+<img src="Images/03_Wireshark_ICMP_Capture.png" alt="Wireshark ICMP Capture">
+<div class="image-caption">
+
+<div class="step">Step 3 — ICMP Packet Capture in Wireshark</div>
+
+Generated ICMP ping traffic from Kali Linux and captured Echo Requests inside Wireshark to analyze packet details and protocol behavior.
+
+<pre>
+icmp
+</pre>
+
+</div>
+</div>
+
+<div class="image-card">
+<img src="Images/04_Nmap_scan.png" alt="Nmap Scan">
+<div class="image-caption">
+
+<div class="step">Step 4 — Nmap Reconnaissance Scan</div>
+
+Performed reconnaissance scanning against the Windows host machine using Nmap and identified active services and open ports.
+
+<pre>
+nmap 192.168.56.1
+</pre>
+
+</div>
+</div>
+
+<div class="image-card">
+<img src="Images/05_TCP_handshake(2).png" alt="TCP Handshake">
+<div class="image-caption">
+
+<div class="step">Step 5 — TCP SYN Packet Analysis</div>
+
+Captured and analyzed TCP SYN packets generated during reconnaissance activity to understand how scanners probe target systems.
+
+<pre>
+tcp.flags.syn == 1
+</pre>
+
+</div>
+</div>
+
+<div class="image-card">
+<img src="Images/06_SYN_Scan_Detection(2).png" alt="SYN Scan Detection">
+<div class="image-caption">
+
+<div class="step">Step 6 — SYN Scan Detection in Wireshark</div>
+
+Detected reconnaissance scanning behavior by filtering SYN packets and observing rapid port probing activity from the attacker machine.
+
+<pre>
+tcp.flags.syn == 1
+</pre>
+
+</div>
+</div>
+
+<div class="image-card">
+<img src="Images/07_Attacker_Traffic_ip(2).png" alt="Attacker Traffic Filtering">
+<div class="image-caption">
+
+<div class="step">Step 7 — Attacker Traffic Filtering</div>
+
+Filtered network traffic originating specifically from the Kali Linux attacker machine using source IP-based filtering in Wireshark.
+
+<pre>
+ip.addr == 192.168.56.101
+</pre>
+
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>🧠 Key Learnings</h2>
+
+<ul>
+<li>Wireshark packet capture and protocol analysis</li>
+<li>Reconnaissance traffic detection techniques</li>
+<li>TCP/IP communication fundamentals</li>
+<li>Importance of proper network visibility</li>
+<li>SOC Analyst investigation workflow</li>
+<li>Packet filtering and traffic inspection</li>
+<li>Basic network threat hunting concepts</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>✅ Result</h2>
+
+<p>
+Successfully built a beginner SOC-style network monitoring lab capable of generating reconnaissance traffic and analyzing attacker behavior using Wireshark packet analysis techniques. This project strengthened foundational skills in networking, blue team operations, traffic analysis, and security monitoring workflows.
+</p>
+
+<a class="github-btn" href="#" target="_blank">
+🚀 View on GitHub
+</a>
+
+</div>
+
+<div class="footer">
+Built & documented by Vivek Singh Bisht
+</div>
+
+</div>
+
+</body>
+</html>
+```
