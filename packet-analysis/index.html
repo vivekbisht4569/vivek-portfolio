@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Packet Analysis | Vivek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    overflow-x:hidden;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:35px;
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back:hover{
+    opacity:.8;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:12px;
+    color:#22c55e;
+}
+
+.subtitle{
+    color:#9ca3af;
+    margin-bottom:50px;
+    font-size:17px;
+    line-height:1.8;
+    max-width:850px;
+}
+
+.section{
+    margin-bottom:70px;
+}
+
+.section h2{
+    color:#22c55e;
+    margin-bottom:18px;
+    font-size:30px;
+}
+
+.section p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.card{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:30px;
+    transition:.3s;
+}
+
+.card:hover{
+    border-color:#22c55e;
+    box-shadow:0 0 30px rgba(34,197,94,.12);
+}
+
+.image-box{
+    width:100%;
+    height:420px;
+    border:2px dashed #374151;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#6b7280;
+    margin-top:25px;
+    font-size:18px;
+    background:#0f172a;
+}
+
+.code{
+    background:#020617;
+    border:1px solid #1e293b;
+    padding:16px;
+    border-radius:12px;
+    margin-top:18px;
+    overflow:auto;
+    color:#22c55e;
+    font-size:15px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+.tag{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:7px 12px;
+    border-radius:999px;
+    font-size:13px;
+    color:#9ca3af;
+}
+
+.outcome{
+    background:#0f172a;
+    border-left:4px solid #22c55e;
+    padding:18px;
+    border-radius:10px;
+    margin-top:20px;
+    color:#cbd5e1;
+    line-height:1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a class="back" href="../index.html">← Back to Portfolio</a>
+
+<h1> Packet Analysis & Reconnaissance</h1>
+
+<p class="subtitle">
+Hands-on packet analysis focused on network reconnaissance, TCP communication, and packet inspection using Kali Linux, Nmap, and Wireshark inside an isolated virtual environment.
+</p>
+
+<!-- SECTION 1 -->
+
+<div class="section">
+
+<h2>📡 Nmap Reconnaissance Scan</h2>
+
+<div class="card">
+
+<p>
+Performed reconnaissance scanning from Kali Linux against the target Windows system using Nmap to generate TCP traffic and analyze scanning behavior in Wireshark.
+</p>
+
+<div class="code">
+nmap 192.168.56.1
+</div>
+
+<div class="tags">
+<span class="tag">Nmap</span>
+<span class="tag">Reconnaissance</span>
+<span class="tag">TCP Scan</span>
+<span class="tag">Kali Linux</span>
+</div>
+
+<div class="outcome">
+<b>Outcome:</b><br><br>
+Generated multiple TCP SYN packets targeting different ports on the Windows host system. This demonstrated how reconnaissance activity appears on the network during port scanning operations.
+</div>
+
+<div class="image-box">
+📷 Add Screenshot — Nmap Scan Terminal Output
+</div>
+
+</div>
+
+</div>
+
+<!-- SECTION 2 -->
+
+<div class="section">
+
+<h2>🦈 ICMP Packet Capture</h2>
+
+<div class="card">
+
+<p>
+Captured ICMP traffic generated during ping communication between Kali Linux and the Windows host system using Wireshark.
+</p>
+
+<div class="code">
+icmp
+</div>
+
+<div class="tags">
+<span class="tag">Wireshark</span>
+<span class="tag">ICMP</span>
+<span class="tag">Packet Capture</span>
+<span class="tag">Ping Analysis</span>
+</div>
+
+<div class="outcome">
+<b>Outcome:</b><br><br>
+Observed Echo Request and Echo Reply packets exchanged between systems. This confirmed successful communication and demonstrated basic packet visibility and network analysis.
+</div>
+
+<div class="image-box">
+📷 Add Screenshot — ICMP Packet Capture
+</div>
+
+</div>
+
+</div>
+
+<!-- SECTION 3 -->
+
+<div class="section">
+
+<h2>🌐 TCP Traffic Analysis</h2>
+
+<div class="card">
+
+<p>
+Analyzed TCP communication generated during Nmap scanning and observed connection attempts using Wireshark filters.
+</p>
+
+<div class="code">
+tcp
+</div>
+
+<div class="tags">
+<span class="tag">TCP</span>
+<span class="tag">Network Analysis</span>
+<span class="tag">Wireshark</span>
+<span class="tag">Traffic Monitoring</span>
+</div>
+
+<div class="outcome">
+<b>Outcome:</b><br><br>
+Observed TCP traffic including SYN packets, connection attempts, and communication between source and destination systems during reconnaissance activity.
+</div>
+
+<div class="image-box">
+📷 Add Screenshot — TCP Packet Analysis
+</div>
+
+</div>
+
+</div>
+
+<!-- SECTION 4 -->
+
+<div class="section">
+
+<h2>🚨 SYN Scan Detection</h2>
+
+<div class="card">
+
+<p>
+Used Wireshark filters to isolate TCP SYN packets generated during Nmap reconnaissance scanning activity.
+</p>
+
+<div class="code">
+tcp.flags.syn == 1
+</div>
+
+<div class="tags">
+<span class="tag">SYN Scan</span>
+<span class="tag">Recon Detection</span>
+<span class="tag">Packet Inspection</span>
+<span class="tag">Wireshark</span>
+</div>
+
+<div class="outcome">
+<b>Outcome:</b><br><br>
+Successfully identified rapid SYN packet generation across multiple destination ports, demonstrating how reconnaissance scanning behavior can be detected through packet analysis.
+</div>
+
+<div class="image-box">
+📷 Add Screenshot — SYN Packet Detection
+</div>
+
+</div>
+
+</div>
+
+<!-- SECTION 5 -->
+
+<div class="section">
+
+<h2>🎯 Attacker Traffic Isolation</h2>
+
+<div class="card">
+
+<p>
+Filtered traffic generated specifically from the Kali Linux attacker machine to isolate reconnaissance-related packets.
+</p>
+
+<div class="code">
+ip.src == 192.168.56.102
+</div>
+
+<div class="tags">
+<span class="tag">Traffic Filtering</span>
+<span class="tag">Source IP</span>
+<span class="tag">Packet Analysis</span>
+<span class="tag">Network Visibility</span>
+</div>
+
+<div class="outcome">
+<b>Outcome:</b><br><br>
+Successfully isolated attacker-generated traffic for easier analysis and monitoring of reconnaissance behavior within the virtual network.
+</div>
+
+<div class="image-box">
+📷 Add Screenshot — Attacker Traffic Filter
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
