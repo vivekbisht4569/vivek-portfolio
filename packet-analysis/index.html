@@ -1,5 +1,7 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -25,14 +27,14 @@ body{
 }
 
 .container{
-    max-width:1150px;
+    max-width:1200px;
     margin:auto;
     padding:70px 20px;
 }
 
 .back{
     display:inline-block;
-    margin-bottom:35px;
+    margin-bottom:40px;
     color:#22c55e;
     text-decoration:none;
     font-weight:600;
@@ -44,71 +46,80 @@ body{
 }
 
 h1{
-    font-size:42px;
-    margin-bottom:12px;
+    font-size:48px;
+    margin-bottom:15px;
     color:#22c55e;
 }
 
 .subtitle{
     color:#9ca3af;
-    margin-bottom:50px;
-    font-size:17px;
     line-height:1.8;
+    font-size:17px;
     max-width:850px;
+    margin-bottom:60px;
 }
 
 .section{
-    margin-bottom:70px;
-}
-
-.section h2{
-    color:#22c55e;
-    margin-bottom:18px;
-    font-size:30px;
-}
-
-.section p{
-    color:#cbd5e1;
-    line-height:1.8;
-    margin-bottom:20px;
+    margin-bottom:60px;
 }
 
 .card{
     background:#111827;
     border:1px solid #1f2937;
-    border-radius:18px;
-    padding:30px;
-    margin-bottom:30px;
+    border-radius:20px;
+    overflow:hidden;
     transition:.3s;
 }
 
 .card:hover{
     border-color:#22c55e;
-    box-shadow:0 0 30px rgba(34,197,94,.12);
+    box-shadow:0 0 35px rgba(34,197,94,.12);
+    transform:translateY(-5px);
 }
 
-.image-box{
+.image img{
     width:100%;
+    display:block;
+    border-bottom:1px solid #1f2937;
+}
+
+/* IF IMAGE NOT ADDED YET */
+
+.placeholder{
     height:420px;
-    border:2px dashed #374151;
-    border-radius:14px;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#6b7280;
-    margin-top:25px;
-    font-size:18px;
     background:#0f172a;
+    color:#6b7280;
+    font-size:20px;
+    border-bottom:1px solid #1f2937;
+}
+
+.content{
+    padding:35px;
+}
+
+.content h2{
+    color:#22c55e;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.content p{
+    color:#cbd5e1;
+    line-height:1.8;
+    margin-bottom:20px;
 }
 
 .code{
     background:#020617;
     border:1px solid #1e293b;
-    padding:16px;
     border-radius:12px;
-    margin-top:18px;
-    overflow:auto;
+    padding:16px;
     color:#22c55e;
+    margin-bottom:22px;
+    overflow:auto;
     font-size:15px;
 }
 
@@ -116,26 +127,32 @@ h1{
     display:flex;
     flex-wrap:wrap;
     gap:10px;
-    margin-top:20px;
+    margin-bottom:25px;
 }
 
 .tag{
-    background:#0b1220;
+    background:#0f172a;
     border:1px solid #1f2937;
+    color:#9ca3af;
     padding:7px 12px;
     border-radius:999px;
     font-size:13px;
-    color:#9ca3af;
 }
 
 .outcome{
     background:#0f172a;
     border-left:4px solid #22c55e;
-    padding:18px;
-    border-radius:10px;
-    margin-top:20px;
-    color:#cbd5e1;
+    padding:20px;
+    border-radius:12px;
     line-height:1.8;
+    color:#cbd5e1;
+}
+
+.footer{
+    text-align:center;
+    color:#6b7280;
+    margin-top:70px;
+    font-size:15px;
 }
 
 </style>
@@ -148,22 +165,37 @@ h1{
 
 <a class="back" href="../index.html">← Back to Portfolio</a>
 
-<h1> Packet Analysis & Reconnaissance</h1>
+<h1>🦈 Packet Analysis & Reconnaissance</h1>
 
 <p class="subtitle">
-Hands-on packet analysis focused on network reconnaissance, TCP communication, and packet inspection using Kali Linux, Nmap, and Wireshark inside an isolated virtual environment.
+Hands-on packet analysis focused on reconnaissance detection, TCP communication analysis, and packet inspection using Kali Linux, Wireshark, and Nmap inside an isolated virtual environment.
 </p>
 
 <!-- SECTION 1 -->
 
 <div class="section">
 
-<h2>📡 Nmap Reconnaissance Scan</h2>
-
 <div class="card">
 
+<div class="image">
+
+<!-- ADD IMAGE HERE -->
+<img src="images/04_Nmap_scan.png" alt="Nmap Scan">
+
+<!-- IF IMAGE NOT ADDED YET USE THIS
+<div class="placeholder">
+📷 Add Nmap Scan Screenshot
+</div>
+-->
+
+</div>
+
+<div class="content">
+
+<h2>📡 Nmap Reconnaissance Scan</h2>
+
 <p>
-Performed reconnaissance scanning from Kali Linux against the target Windows system using Nmap to generate TCP traffic and analyze scanning behavior in Wireshark.
+Performed reconnaissance scanning from Kali Linux against the Windows host system using Nmap to generate TCP traffic and observe scanning behavior inside Wireshark.
 </p>
 
 <div class="code">
@@ -179,11 +211,10 @@ nmap 192.168.56.1
 
 <div class="outcome">
 <b>Outcome:</b><br><br>
-Generated multiple TCP SYN packets targeting different ports on the Windows host system. This demonstrated how reconnaissance activity appears on the network during port scanning operations.
+
+Generated multiple TCP SYN packets targeting different ports on the Windows host system. This demonstrated how reconnaissance activity appears during port scanning operations.
 </div>
 
-<div class="image-box">
-📷 Add Screenshot — Nmap Scan Terminal Output
 </div>
 
 </div>
@@ -194,12 +225,26 @@ Generated multiple TCP SYN packets targeting different ports on the Windows host
 
 <div class="section">
 
-<h2>🦈 ICMP Packet Capture</h2>
-
 <div class="card">
 
+<div class="image">
+
+<img src="images/03_Wireshark_ICMP_Capture.png" alt="ICMP Packet Capture">
+
+<!--
+<div class="placeholder">
+📷 Add ICMP Packet Capture Screenshot
+</div>
+-->
+
+</div>
+
+<div class="content">
+
+<h2>🦈 ICMP Packet Capture</h2>
+
 <p>
-Captured ICMP traffic generated during ping communication between Kali Linux and the Windows host system using Wireshark.
+Captured ICMP traffic generated during ping communication between Kali Linux and the Windows host system using Wireshark packet analysis.
 </p>
 
 <div class="code">
@@ -215,11 +260,10 @@ icmp
 
 <div class="outcome">
 <b>Outcome:</b><br><br>
-Observed Echo Request and Echo Reply packets exchanged between systems. This confirmed successful communication and demonstrated basic packet visibility and network analysis.
+
+Observed Echo Request and Echo Reply packets exchanged between both systems, confirming successful communication and packet visibility.
 </div>
 
-<div class="image-box">
-📷 Add Screenshot — ICMP Packet Capture
 </div>
 
 </div>
@@ -230,12 +274,26 @@ Observed Echo Request and Echo Reply packets exchanged between systems. This con
 
 <div class="section">
 
-<h2>🌐 TCP Traffic Analysis</h2>
-
 <div class="card">
 
+<div class="image">
+
+<img src="images/05_TCP_handshake.png" alt="TCP Analysis">
+
+<!--
+<div class="placeholder">
+📷 Add TCP Packet Analysis Screenshot
+</div>
+-->
+
+</div>
+
+<div class="content">
+
+<h2>🌐 TCP Traffic Analysis</h2>
+
 <p>
-Analyzed TCP communication generated during Nmap scanning and observed connection attempts using Wireshark filters.
+Analyzed TCP communication generated during reconnaissance scanning and observed TCP connection attempts using Wireshark filters.
 </p>
 
 <div class="code">
@@ -244,18 +302,17 @@ tcp
 
 <div class="tags">
 <span class="tag">TCP</span>
-<span class="tag">Network Analysis</span>
 <span class="tag">Wireshark</span>
+<span class="tag">Network Analysis</span>
 <span class="tag">Traffic Monitoring</span>
 </div>
 
 <div class="outcome">
 <b>Outcome:</b><br><br>
-Observed TCP traffic including SYN packets, connection attempts, and communication between source and destination systems during reconnaissance activity.
+
+Observed TCP traffic including SYN packets, connection attempts, and source-to-destination communication during scanning activity.
 </div>
 
-<div class="image-box">
-📷 Add Screenshot — TCP Packet Analysis
 </div>
 
 </div>
@@ -266,12 +323,26 @@ Observed TCP traffic including SYN packets, connection attempts, and communicati
 
 <div class="section">
 
-<h2>🚨 SYN Scan Detection</h2>
-
 <div class="card">
 
+<div class="image">
+
+<img src="images/06_SYN_Scan_Detection.png" alt="SYN Scan Detection">
+
+<!--
+<div class="placeholder">
+📷 Add SYN Scan Detection Screenshot
+</div>
+-->
+
+</div>
+
+<div class="content">
+
+<h2>🚨 SYN Scan Detection</h2>
+
 <p>
-Used Wireshark filters to isolate TCP SYN packets generated during Nmap reconnaissance scanning activity.
+Used Wireshark filters to isolate TCP SYN packets generated during Nmap reconnaissance activity.
 </p>
 
 <div class="code">
@@ -281,17 +352,16 @@ tcp.flags.syn == 1
 <div class="tags">
 <span class="tag">SYN Scan</span>
 <span class="tag">Recon Detection</span>
-<span class="tag">Packet Inspection</span>
+<span class="tag">Packet Analysis</span>
 <span class="tag">Wireshark</span>
 </div>
 
 <div class="outcome">
 <b>Outcome:</b><br><br>
-Successfully identified rapid SYN packet generation across multiple destination ports, demonstrating how reconnaissance scanning behavior can be detected through packet analysis.
+
+Successfully identified rapid SYN packet generation across multiple destination ports, demonstrating detectable reconnaissance behavior.
 </div>
 
-<div class="image-box">
-📷 Add Screenshot — SYN Packet Detection
 </div>
 
 </div>
@@ -302,16 +372,30 @@ Successfully identified rapid SYN packet generation across multiple destination 
 
 <div class="section">
 
-<h2>🎯 Attacker Traffic Isolation</h2>
-
 <div class="card">
+
+<div class="image">
+
+<img src="images/07_Attacker_Traffic_ip.png" alt="Attacker Traffic Filter">
+
+<!--
+<div class="placeholder">
+📷 Add Attacker Traffic Filter Screenshot
+</div>
+-->
+
+</div>
+
+<div class="content">
+
+<h2>🎯 Attacker Traffic Isolation</h2>
 
 <p>
 Filtered traffic generated specifically from the Kali Linux attacker machine to isolate reconnaissance-related packets.
 </p>
 
 <div class="code">
-ip.src == 192.168.56.102
+ip.src == 192.168.56.101
 </div>
 
 <div class="tags">
@@ -323,18 +407,22 @@ ip.src == 192.168.56.102
 
 <div class="outcome">
 <b>Outcome:</b><br><br>
-Successfully isolated attacker-generated traffic for easier analysis and monitoring of reconnaissance behavior within the virtual network.
-</div>
 
-<div class="image-box">
-📷 Add Screenshot — Attacker Traffic Filter
+Successfully isolated attacker-generated traffic for easier analysis and monitoring of reconnaissance activity within the virtual environment.
 </div>
 
 </div>
 
+</div>
+
+</div>
+
+<div class="footer">
+Built By Vivek Singh Bisht
 </div>
 
 </div>
 
 </body>
 </html>
+```
