@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vivek Blogs | Cybersecurity Journal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:
+    linear-gradient(135deg,#071018 0%,#0b0f17 45%,#111827 100%);
+    color:#e6edf3;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* GRID BACKGROUND */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(34,197,94,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,197,94,0.05) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left, rgba(34,197,94,.12), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(34,197,94,.08), transparent 30%);
+    z-index:-1;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:0 20px;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    background:rgba(7,16,24,.75);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #1f2937;
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    color:#22c55e;
+}
+
+.logo span{
+    color:#fff;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav ul li a{
+    color:#9ca3af;
+    transition:.25s;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+nav ul li a:hover{
+    color:#22c55e;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:100px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-small{
+    color:#22c55e;
+    text-transform:uppercase;
+    letter-spacing:4px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:68px;
+    line-height:1.05;
+    font-weight:900;
+    margin-bottom:25px;
+}
+
+.hero p{
+    color:#9ca3af;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.hero-motto{
+    margin-top:20px;
+    color:#22c55e;
+    font-family:monospace;
+    font-size:14px;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 24px;
+    border-radius:14px;
+    border:1px solid #22c55e;
+    transition:.25s;
+    font-weight:600;
+}
+
+.btn-primary{
+    background:#22c55e;
+    color:#000;
+}
+
+.btn-primary:hover{
+    background:#4ade80;
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    color:#22c55e;
+}
+
+.btn-secondary:hover{
+    background:#22c55e;
+    color:#000;
+}
+
+/* TERMINAL */
+
+.terminal{
+    background:#0f172a;
+    border:1px solid #1f2937;
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 0 30px rgba(0,0,0,.4);
+}
+
+.terminal-top{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.red{background:#ef4444}
+.yellow{background:#facc15}
+.green{background:#22c55e}
+
+.terminal-content{
+    font-family:monospace;
+    color:#22c55e;
+    line-height:2;
+}
+
+.terminal-content span{
+    color:#e5e7eb;
+}
+
+/* SECTION */
+
+section{
+    padding:120px 0;
+    border-top:1px solid rgba(255,255,255,.04);
+}
+
+.section-top{
+    margin-bottom:60px;
+}
+
+.section-small{
+    color:#22c55e;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:13px;
+    margin-bottom:10px;
+}
+
+.section-title{
+    font-size:46px;
+    font-weight:800;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#101826;
+    border:1px solid #1f2937;
+    padding:28px;
+    border-radius:24px;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#22c55e;
+    box-shadow:0 0 25px rgba(34,197,94,.15);
+}
+
+.card-category{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.card-category span:first-child{
+    color:#22c55e;
+}
+
+.card-category span:last-child{
+    color:#6b7280;
+}
+
+.card h3{
+    font-size:28px;
+    margin-bottom:18px;
+    line-height:1.3;
+}
+
+.card p{
+    color:#9ca3af;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.read-more{
+    color:#22c55e;
+    font-weight:600;
+    transition:.2s;
+}
+
+.read-more:hover{
+    color:#4ade80;
+}
+
+/* PROJECT TAGS */
+
+.tag{
+    display:inline-block;
+    background:rgba(34,197,94,.08);
+    color:#22c55e;
+    border:1px solid rgba(34,197,94,.15);
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+}
+
+.about p{
+    color:#9ca3af;
+    line-height:1.9;
+    font-size:17px;
+    margin-bottom:20px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    color:#9ca3af;
+    margin-top:20px;
+    line-height:1.8;
+    max-width:700px;
+    margin-inline:auto;
+}
+
+.contact-buttons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid rgba(255,255,255,.05);
+    padding:30px 20px;
+    text-align:center;
+    color:#6b7280;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+.hero-grid,
+.about-grid{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:52px;
+}
+
+nav ul{
+    gap:15px;
+}
+
+.section-title{
+    font-size:36px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero h1{
+    font-size:42px;
+}
+
+nav ul{
+    display:none;
+}
+
+.hero{
+    padding-top:140px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+<div class="container nav-inner">
+
+<h1 class="logo">
+Vivek<span>.blogs</span>
+</h1>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#blogs">Blogs</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div>
+
+<p class="hero-small">
+Cybersecurity • SOC • Networking
+</p>
+
+<h1>
+Documenting My
+Cybersecurity Journey.
+</h1>
+
+<p>
+A personal cybersecurity blog where I document networking concepts,
+SOC investigations, practical labs, tools, packet analysis,
+and security projects while building real-world skills.
+</p>
+
+<p class="hero-motto">
+&gt; Learn • Practice • Document • Improve
+</p>
+
+<div class="hero-buttons">
+
+<a href="#blogs" class="btn btn-primary">
+Explore Blogs
+</a>
+
+<a href="#projects" class="btn btn-secondary">
+View Projects
+</a>
+
+</div>
+
+</div>
+
+<!-- TERMINAL -->
+
+<div class="terminal">
+
+<div class="terminal-top">
+<div class="dot red"></div>
+<div class="dot yellow"></div>
+<div class="dot green"></div>
+</div>
+
+<div class="terminal-content">
+
+<p>$ whoami</p>
+<p><span>Cybersecurity Student</span></p>
+
+<br>
+
+<p>$ focus</p>
+<p><span>SOC Analysis | Networking | Ethical Hacking</span></p>
+
+<br>
+
+<p>$ current_status</p>
+<p><span>Learning • Building • Documenting</span></p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BLOGS -->
+
+<section id="blogs">
+
+<div class="container">
+
+<div class="section-top">
+
+<p class="section-small">
+Latest Posts
+</p>
+
+<h2 class="section-title">
+Featured Blogs
+</h2>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-category">
+<span>Network Analysis</span>
+<span>May 2026</span>
+</div>
+
+<h3>
+Understanding Wireshark Packet Colors
+</h3>
+
+<p>
+Learn what different packet colors mean in Wireshark and how SOC analysts use them during investigations.
+</p>
+
+<a href="#" class="read-more">
+Read More →
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="card-category">
+<span>Reconnaissance</span>
+<span>May 2026</span>
+</div>
+
+<h3>
+My First Nmap Recon Workflow
+</h3>
+
+<p>
+A beginner-friendly walkthrough of basic Nmap scanning techniques and practical usage.
+</p>
+
+<a href="#" class="read-more">
+Read More →
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="card-category">
+<span>SOC Analysis</span>
+<span>May 2026</span>
+</div>
+
+<h3>
+Detecting Brute Force Attempts
+</h3>
+
+<p>
+How repeated failed logins and logon types can indicate brute-force activity in Windows logs.
+</p>
+
+<a href="#" class="read-more">
+Read More →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="container">
+
+<div class="section-top">
+
+<p class="section-small">
+Hands-On Work
+</p>
+
+<h2 class="section-title">
+Projects & Labs
+</h2>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="tag">
+Python
+</div>
+
+<h3>
+Port Scanner
+</h3>
+
+<p>
+A custom TCP port scanner built while learning networking fundamentals and socket programming.
+</p>
+
+<a href="https://github.com/vivekbisht4569" target="_blank" class="read-more">
+View Project →
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="tag">
+Security
+</div>
+
+<h3>
+Password Strength Checker
+</h3>
+
+<p>
+A Python-based tool that evaluates password strength using security validation rules and patterns.
+</p>
+
+<a href="https://github.com/vivekbisht4569" target="_blank" class="read-more">
+View Project →
+</a>
+
+</div>
+
+<div class="card">
+
+<div class="tag">
+SOC Lab
+</div>
+
+<h3>
+SOC Home Lab
+</h3>
+
+<p>
+Practice environment for monitoring authentication events, log analysis, and suspicious activities.
+</p>
+
+<a href="https://github.com/vivekbisht4569" target="_blank" class="read-more">
+View Project →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="about">
+
+<div class="container about-grid">
+
+<div>
+
+<p class="section-small">
+About Me
+</p>
+
+<h2 class="section-title">
+Learning Cybersecurity Publicly
+</h2>
+
+</div>
+
+<div>
+
+<p>
+I am a cybersecurity student focused on SOC operations,
+networking, ethical hacking, and practical security analysis.
+This website documents my learning journey through blogs,
+labs, projects, and technical write-ups.
+</p>
+
+<p>
+My goal is to improve daily, build practical skills,
+participate in hackathons, and grow into a strong security professional.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<div class="container contact">
+
+<p class="section-small">
+Connect
+</p>
+
+<h2 class="section-title">
+Let’s Build & Learn Together
+</h2>
+
+<p>
+Follow my cybersecurity journey, projects, blogs,
+future write-ups, and practical learning experiments.
+</p>
+
+<div class="contact-buttons">
+
+<a href="https://github.com/vivekbisht4569" target="_blank" class="btn btn-primary">
+GitHub
+</a>
+
+<a href="https://www.linkedin.com/in/vivek-singh-bisht-074160326/" target="_blank" class="btn btn-secondary">
+LinkedIn
+</a>
+
+<a href="https://tryhackme.com/p/viveksinghbisht2" target="_blank" class="btn btn-secondary">
+TryHackMe
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 Vivek Singh Bisht • Cybersecurity Blog Portfolio
+</footer>
+
+</body>
+</html>
