@@ -20,45 +20,83 @@ gtag('config', 'G-7L80Y86NRC');
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui;scroll-behavior:smooth}
 body{background:#0b0f17;color:#e6edf3;overflow-x:hidden}
 
+body{
+background:
+linear-gradient(
+135deg,
+#050816 0%,
+#0b0f17 45%,
+#111827 100%
+);
+
+color:#e6edf3;
+
+overflow-x:hidden;
+
+position:relative;
+}
+
+/* CYBER GRID */
+
 body::before{
+
 content:"";
+
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
+
+inset:0;
+
+background-image:
+
+linear-gradient(
+rgba(34,197,94,.04) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(34,197,94,.04) 1px,
+transparent 1px
+);
+
+background-size:45px 45px;
+
+z-index:-2;
+}
+
+/* CYBER GLOW */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
 
 background:
 
-/* Main green cyber glow */
 radial-gradient(
-circle at 15% 20%,
-rgba(34,197,94,.18),
-transparent 28%
-),
-
-/* Right glow */
-radial-gradient(
-circle at 85% 30%,
-rgba(34,197,94,.12),
+circle at top left,
+rgba(34,197,94,.14),
 transparent 30%
 ),
 
-/* Blue cyber tint */
 radial-gradient(
-circle at 70% 75%,
+circle at top right,
 rgba(59,130,246,.08),
-transparent 32%
+transparent 35%
 ),
 
-/* Purple premium tint */
 radial-gradient(
-circle at 40% 90%,
-rgba(168,85,247,.06),
-transparent 28%
+circle at bottom center,
+rgba(34,197,94,.08),
+transparent 40%
 );
 
-z-index:-2;
+z-index:-1;
+
+animation:ambientGlow 10s ease-in-out infinite;
 }
 
 a{text-decoration:none;color:inherit}
@@ -189,10 +227,23 @@ border-top:1px solid #1f2937;
 margin-top:50px
 }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
+@keyframes ambientGlow{
+
+0%{
+transform:scale(1);
 }
+
+50%{
+transform:scale(1.06);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+
 </style>
 </head>
 
@@ -209,6 +260,7 @@ to{opacity:1;transform:translateY(0)}
 </ul>
 </div>
 </nav>
+
 
 <section class="hero container">
 <h1>Aspiring SOC Analyst | Cybersecurity Student</h1>
