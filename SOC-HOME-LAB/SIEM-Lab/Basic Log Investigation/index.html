@@ -228,30 +228,22 @@ border-top:1px solid #1f2937;
 color:#6b7280;
 font-size:14px;
 }
+.lab-image{
 
-.image-placeholder{
+width:75%;
 
-height:320px;
+max-width:900px;
 
-border:2px dashed #1f2937;
+display:block;
 
-border-radius:14px;
+margin:20px auto;
 
-display:flex;
+border-radius:12px;
 
-justify-content:center;
+border:1px solid #1f2937;
 
-align-items:center;
-
-background:#0b1220;
-
-margin-top:15px;
-
-color:#6b7280;
-
-font-weight:600;
-
-text-align:center;
+box-shadow:
+0 10px 25px rgba(0,0,0,.25);
 }
 
 
@@ -407,9 +399,9 @@ The following Sysmon events were investigated and analyzed during this lab:
 Captured process execution events to identify launched applications, command-line arguments, parent-child process relationships, and suspicious process activity.
 </p>
 
-<div class="image-placeholder">
-Screenshot Placeholder – Event ID 1
-</div>
+<img src="Images/01_splunk_investigation_EVEVENT_ID_01.png"
+alt="Event ID 1"
+class="lab-image">
 
 <br>
 
@@ -419,9 +411,9 @@ Screenshot Placeholder – Event ID 1
 Monitored outbound and inbound network connections to identify communication between systems, suspicious destinations, and potential reconnaissance activity.
 </p>
 
-<div class="image-placeholder">
-Screenshot Placeholder – Event ID 3
-</div>
+<img src="Images/02_splunk_investigation_EVEVENT_ID_03.png"
+alt="Event ID 1"
+class="lab-image">
 
 <br>
 
@@ -431,9 +423,9 @@ Screenshot Placeholder – Event ID 3
 Tracked file creation activity to detect newly created files, downloaded content, and potential malware-related artifacts.
 </p>
 
-<div class="image-placeholder">
-Screenshot Placeholder – Event ID 11
-</div>
+<img src="Images/03_splunk_investigation_EVEVENT_ID_11.png"
+alt="Event ID 1"
+class="lab-image">
 
 <br>
 
@@ -443,9 +435,10 @@ Screenshot Placeholder – Event ID 11
 Investigated registry modifications that could indicate persistence mechanisms, software configuration changes, or attacker activity.
 </p>
 
-<div class="image-placeholder">
-Screenshot Placeholder – Event ID 13
-</div>
+
+<img src="Images/04_splunk_investigation_EVEVENT_ID_13.png"
+alt="Event ID 1"
+class="lab-image">
 
 </div>
 
