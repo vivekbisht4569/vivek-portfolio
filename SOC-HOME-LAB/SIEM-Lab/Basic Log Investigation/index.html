@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SIEM Labs | Vivek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+body{
+background:#050816;
+color:#e6edf3;
+overflow-x:hidden;
+position:relative;
+}
+
+/* Animated Cyber Background */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+z-index:-2;
+
+background:
+
+radial-gradient(
+circle at 15% 20%,
+rgba(34,197,94,.12),
+transparent 30%
+),
+
+radial-gradient(
+circle at 85% 30%,
+rgba(59,130,246,.10),
+transparent 30%
+),
+
+radial-gradient(
+circle at 70% 80%,
+rgba(168,85,247,.08),
+transparent 30%
+);
+
+background-size:140% 140%;
+
+animation:bgMove 18s ease-in-out infinite;
+}
+
+/* Grid Overlay */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+z-index:-1;
+
+background-image:
+
+linear-gradient(
+rgba(255,255,255,.025) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.025) 1px,
+transparent 1px
+);
+
+background-size:55px 55px;
+
+mask-image:
+radial-gradient(
+circle at center,
+black,
+transparent 90%
+);
+
+pointer-events:none;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+padding:70px 20px;
+}
+
+.back{
+display:inline-block;
+margin-bottom:35px;
+color:#22c55e;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.back:hover{
+opacity:.8;
+}
+
+h1{
+font-size:42px;
+margin-bottom:12px;
+color:#22c55e;
+}
+
+.subtitle{
+color:#9ca3af;
+margin-bottom:50px;
+font-size:17px;
+line-height:1.8;
+max-width:850px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.card{
+display:block;
+background:#111827;
+border:1px solid #1f2937;
+padding:30px;
+border-radius:18px;
+transition:.3s;
+text-decoration:none;
+color:#e6edf3;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:4px;
+background:#22c55e;
+transform:scaleX(0);
+transition:.3s;
+}
+
+.card:hover::before{
+transform:scaleX(1);
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#22c55e;
+box-shadow:0 0 35px rgba(34,197,94,.15);
+}
+
+h3{
+margin-bottom:14px;
+color:#22c55e;
+font-size:23px;
+line-height:1.5;
+}
+
+.card p{
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:22px;
+font-size:15px;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.tag{
+background:#0b1220;
+border:1px solid #1f2937;
+padding:7px 12px;
+border-radius:999px;
+font-size:13px;
+color:#9ca3af;
+}
+
+.github-btn{
+display:inline-block;
+margin-top:45px;
+padding:14px 24px;
+background:#22c55e;
+color:#0b0f17;
+text-decoration:none;
+border-radius:12px;
+font-weight:700;
+transition:.3s;
+}
+
+.github-btn:hover{
+background:#16a34a;
+transform:translateY(-2px);
+}
+
+.footer{
+text-align:center;
+margin-top:70px;
+padding-top:30px;
+border-top:1px solid #1f2937;
+color:#6b7280;
+font-size:14px;
+}
+
+.image-placeholder{
+
+height:320px;
+
+border:2px dashed #1f2937;
+
+border-radius:14px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#0b1220;
+
+margin-top:15px;
+
+color:#6b7280;
+
+font-weight:600;
+
+text-align:center;
+}
+
+
+@keyframes bgMove{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.06);
+}
+
+100%{
+transform:scale(1);
+}
+
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a class="back" href="../index.html">← Back to SIEM Labs</a>
+
+<h1>📈 Splunk Lab 1 — Basic Log Investigation</h1>
+
+<p class="subtitle">
+This lab focused on ingesting Windows Event Logs into Splunk, performing basic searches using SPL (Search Processing Language), filtering events, and understanding how security analysts investigate logs during day-to-day monitoring activities.
+</p>
+
+<!-- LAB OVERVIEW -->
+
+<div class="card">
+
+<h3>🎯 Objective</h3>
+
+<p>
+The goal of this lab was to understand the fundamentals of Splunk log analysis by collecting Windows Event Logs and performing searches to identify system activity, user actions, and security-relevant events.
+</p>
+
+<div class="tags">
+<span class="tag">Splunk</span>
+<span class="tag">SIEM</span>
+<span class="tag">Windows Logs</span>
+<span class="tag">SOC</span>
+</div>
+
+</div>
+
+<br>
+
+<!-- LAB ENVIRONMENT -->
+
+<div class="card">
+
+<h3>🖥️ Lab Environment</h3>
+
+<p>
+The following environment was used during this investigation:
+</p>
+
+<ul style="padding-left:25px;line-height:2;">
+<li>Windows 11 Virtual Machine</li>
+<li>Splunk Enterprise</li>
+<li>VirtualBox</li>
+<li>Windows Event Logs</li>
+<li>Sysmon (Optional Future Integration)</li>
+</ul>
+
+</div>
+
+<br>
+
+<!-- INVESTIGATION STEPS -->
+
+<div class="card">
+
+<h3>🔍 Investigation Process</h3>
+
+<p>
+The investigation was performed using the following workflow:
+</p>
+
+<ul style="padding-left:25px;line-height:2;">
+<li>Verified log ingestion into Splunk</li>
+<li>Explored available indexes</li>
+<li>Searched Windows Event Logs</li>
+<li>Filtered events using SPL queries</li>
+<li>Analyzed event details</li>
+<li>Reviewed host activity and timestamps</li>
+<li>Validated search results</li>
+</ul>
+
+</div>
+
+<br>
+
+<!-- SPL QUERIES -->
+
+<div class="card">
+
+<h3>💻 SPL Queries Used</h3>
+
+<p>Example searches used during the investigation:</p>
+
+<pre style="
+background:#0b1220;
+padding:18px;
+border-radius:12px;
+overflow:auto;
+margin-top:15px;
+border:1px solid #1f2937;
+color:#22c55e;
+">
+
+index=*
+
+index=main
+
+index=main host=WIN11
+
+index=main sourcetype=WinEventLog
+
+index=main EventCode=4624
+
+</pre>
+
+</div>
+
+<br>
+
+<!-- SCREENSHOTS -->
+
+<div class="card">
+
+<h3>📸 Investigation Screenshots</h3>
+
+<p>
+The following Sysmon events were investigated and analyzed during this lab:
+</p>
+
+<br>
+
+<h4>🟢 Event ID 1 — Process Creation</h4>
+
+<p>
+Captured process execution events to identify launched applications, command-line arguments, parent-child process relationships, and suspicious process activity.
+</p>
+
+<div class="image-placeholder">
+Screenshot Placeholder – Event ID 1
+</div>
+
+<br>
+
+<h4>🌐 Event ID 3 — Network Connection</h4>
+
+<p>
+Monitored outbound and inbound network connections to identify communication between systems, suspicious destinations, and potential reconnaissance activity.
+</p>
+
+<div class="image-placeholder">
+Screenshot Placeholder – Event ID 3
+</div>
+
+<br>
+
+<h4>📁 Event ID 11 — File Creation</h4>
+
+<p>
+Tracked file creation activity to detect newly created files, downloaded content, and potential malware-related artifacts.
+</p>
+
+<div class="image-placeholder">
+Screenshot Placeholder – Event ID 11
+</div>
+
+<br>
+
+<h4>⚙️ Event ID 13 — Registry Value Modification</h4>
+
+<p>
+Investigated registry modifications that could indicate persistence mechanisms, software configuration changes, or attacker activity.
+</p>
+
+<div class="image-placeholder">
+Screenshot Placeholder – Event ID 13
+</div>
+
+</div>
+
+
+<!-- FINDINGS -->
+
+<div class="card">
+
+<h3>📋 Key Findings</h3>
+
+<p>
+During the investigation, Windows Event Logs were successfully ingested into Splunk and queried using SPL. The lab demonstrated how analysts can quickly locate events, filter activity, and investigate system behavior through centralized logging.
+</p>
+
+</div>
+
+<br>
+
+<!-- LEARNING OUTCOMES -->
+
+<div class="card">
+
+<h3>🎓 Learning Outcomes</h3>
+
+<ul style="padding-left:25px;line-height:2;">
+<li>Understanding SIEM fundamentals</li>
+<li>Basic SPL searching</li>
+<li>Windows log investigation</li>
+<li>Event filtering techniques</li>
+<li>Log analysis workflow</li>
+<li>SOC investigation methodology</li>
+</ul>
+
+</div>
+
+<a class="github-btn"
+href="https://github.com/vivekbisht4569/SOC-Home-Lab/tree/main/04_SPLUNK_SIEM"
+target="_blank">
+
+🚀 View Full Lab on GitHub
+
+</a>
+
+<div class="footer">
+Built & Documented by Vivek Singh Bisht
+</div>
+
+</div>
+
+
