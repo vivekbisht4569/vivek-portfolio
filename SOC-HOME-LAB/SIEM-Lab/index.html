@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SOC Home Lab | Vivek</title>
+<title>SIEM Labs | Vivek</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -101,170 +100,136 @@ transparent 90%
 pointer-events:none;
 }
 
-
-/* MAIN CONTAINER */
-
 .container{
-    max-width:1150px;
-    margin:auto;
-    padding:70px 20px;
+max-width:1150px;
+margin:auto;
+padding:70px 20px;
 }
 
-/* BACK BUTTON */
-
 .back{
-    display:inline-block;
-    margin-bottom:35px;
-    color:#22c55e;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
+display:inline-block;
+margin-bottom:35px;
+color:#22c55e;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
 }
 
 .back:hover{
-    opacity:.8;
+opacity:.8;
 }
-
-/* HEADING */
 
 h1{
-    font-size:42px;
-    margin-bottom:12px;
-    color:#22c55e;
+font-size:42px;
+margin-bottom:12px;
+color:#22c55e;
 }
-
-/* SUBTITLE */
 
 .subtitle{
-    color:#9ca3af;
-    margin-bottom:50px;
-    font-size:17px;
-    line-height:1.8;
-    max-width:850px;
+color:#9ca3af;
+margin-bottom:50px;
+font-size:17px;
+line-height:1.8;
+max-width:850px;
 }
-
-/* GRID */
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
 }
 
-/* CARD */
-
 .card{
-    display:block;
-    background:#111827;
-    border:1px solid #1f2937;
-    padding:30px;
-    border-radius:18px;
-    transition:.3s;
-    text-decoration:none;
-    color:#e6edf3;
-    position:relative;
-    overflow:hidden;
+display:block;
+background:#111827;
+border:1px solid #1f2937;
+padding:30px;
+border-radius:18px;
+transition:.3s;
+text-decoration:none;
+color:#e6edf3;
+position:relative;
+overflow:hidden;
 }
 
 .card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:4px;
-    background:#22c55e;
-    transform:scaleX(0);
-    transition:.3s;
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:4px;
+background:#22c55e;
+transform:scaleX(0);
+transition:.3s;
 }
 
 .card:hover::before{
-    transform:scaleX(1);
+transform:scaleX(1);
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    border-color:#22c55e;
-    box-shadow:0 0 35px rgba(34,197,94,.15);
+transform:translateY(-8px);
+border-color:#22c55e;
+box-shadow:0 0 35px rgba(34,197,94,.15);
 }
-
-/* CARD TITLE */
 
 h3{
-    margin-bottom:14px;
-    color:#22c55e;
-    font-size:23px;
-    line-height:1.5;
+margin-bottom:14px;
+color:#22c55e;
+font-size:23px;
+line-height:1.5;
 }
-
-/* CARD TEXT */
 
 .card p{
-    color:#cbd5e1;
-    line-height:1.8;
-    margin-bottom:22px;
-    font-size:15px;
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:22px;
+font-size:15px;
 }
 
-/* TAGS */
-
 .tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
 }
 
 .tag{
-    background:#0b1220;
-    border:1px solid #1f2937;
-    padding:7px 12px;
-    border-radius:999px;
-    font-size:13px;
-    color:#9ca3af;
+background:#0b1220;
+border:1px solid #1f2937;
+padding:7px 12px;
+border-radius:999px;
+font-size:13px;
+color:#9ca3af;
 }
-
-/* STATUS */
-
-.status{
-    display:inline-block;
-    margin-top:20px;
-    color:#22c55e;
-    font-size:14px;
-    font-weight:600;
-}
-
-/* GITHUB BUTTON */
 
 .github-btn{
-    display:inline-block;
-    margin-top:45px;
-    padding:14px 24px;
-    background:#22c55e;
-    color:#0b0f17;
-    text-decoration:none;
-    border-radius:12px;
-    font-weight:700;
-    transition:.3s;
+display:inline-block;
+margin-top:45px;
+padding:14px 24px;
+background:#22c55e;
+color:#0b0f17;
+text-decoration:none;
+border-radius:12px;
+font-weight:700;
+transition:.3s;
 }
 
 .github-btn:hover{
-    background:#16a34a;
-    transform:translateY(-2px);
+background:#16a34a;
+transform:translateY(-2px);
 }
-
-/* FOOTER */
 
 .footer{
-    text-align:center;
-    margin-top:70px;
-    padding-top:30px;
-    border-top:1px solid #1f2937;
-    color:#6b7280;
-    font-size:14px;
+text-align:center;
+margin-top:70px;
+padding-top:30px;
+border-top:1px solid #1f2937;
+color:#6b7280;
+font-size:14px;
 }
 
-
-@keyframes ambientGlow{
+@keyframes bgMove{
 
 0%{
 transform:scale(1);
@@ -280,34 +245,78 @@ transform:scale(1);
 
 }
 
-
-
 </style>
 
 </head>
 
 <body>
 
+<div class="container">
+
+<a class="back" href="../index.html">← Back to SOC Home Lab</a>
+
 <h1>📊 SIEM & Log Analysis Labs</h1>
 
 <p class="subtitle">
-Practical SIEM investigations focused on log analysis,
-security monitoring,
-alert triage,
-and detection engineering.
+Practical SIEM investigations focused on security monitoring, log analysis, event correlation, alert triage, and threat detection using Splunk and Windows telemetry.
 </p>
 
 <div class="grid">
 
-<a href="Splunk /index.html" class="card">
+<!-- SPLUNK LAB 1 -->
+
+<a href="Splunk Lab 1/index.html" class="card">
 
 <h3>📈 Splunk  — Basic Log Investigation</h3>
 
 <p>
-Searching, filtering and analyzing Windows Event Logs
-inside Splunk.
+Performed log ingestion, searching, filtering, and investigation of Windows Event Logs using Splunk. Focused on understanding SPL queries, event correlation, and basic SOC investigation workflows.
 </p>
 
+<div class="tags">
+<span class="tag">Splunk</span>
+<span class="tag">SIEM</span>
+<span class="tag">Windows Logs</span>
+<span class="tag">SOC</span>
+<span class="tag">Investigation</span>
+<span class="tag">SPL</span>
+</div>
 
+</a>
+
+<!-- FUTURE LABS -->
+
+<!--
+
+<a href="Splunk Lab 2/index.html" class="card">
+
+<h3>🚨 Splunk Lab 2 — Alert Investigation</h3>
+
+<p>
+Investigating alerts and suspicious activities using Splunk dashboards and event correlation techniques.
+</p>
+
+<div class="tags">
+<span class="tag">Alerts</span>
+<span class="tag">Threat Detection</span>
+<span class="tag">SOC</span>
+</div>
+
+</a>
+
+-->
 
 </div>
+
+<a class="github-btn" href="https://github.com/vivekbisht4569" target="_blank">
+🚀 View on GitHub
+</a>
+
+<div class="footer">
+Built & Documented by Vivek Singh Bisht
+</div>
+
+</div>
+
+</body>
+</html>
