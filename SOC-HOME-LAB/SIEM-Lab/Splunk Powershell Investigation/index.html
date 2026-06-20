@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Splunk PowerShell Investigation | Vivek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+body{
+background:#050816;
+color:#e6edf3;
+overflow-x:hidden;
+position:relative;
+}
+
+/* Animated Cyber Background */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+z-index:-2;
+
+background:
+
+radial-gradient(
+circle at 15% 20%,
+rgba(34,197,94,.12),
+transparent 30%
+),
+
+radial-gradient(
+circle at 85% 30%,
+rgba(59,130,246,.10),
+transparent 30%
+),
+
+radial-gradient(
+circle at 70% 80%,
+rgba(168,85,247,.08),
+transparent 30%
+);
+
+background-size:140% 140%;
+
+animation:bgMove 18s ease-in-out infinite;
+}
+
+/* Grid Overlay */
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+z-index:-1;
+
+background-image:
+
+linear-gradient(
+rgba(255,255,255,.025) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.025) 1px,
+transparent 1px
+);
+
+background-size:55px 55px;
+
+mask-image:
+radial-gradient(
+circle at center,
+black,
+transparent 90%
+);
+
+pointer-events:none;
+}
+
+.container{
+max-width:1150px;
+margin:auto;
+padding:70px 20px;
+}
+
+.back{
+display:inline-block;
+margin-bottom:35px;
+color:#22c55e;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.back:hover{
+opacity:.8;
+}
+
+h1{
+font-size:42px;
+margin-bottom:12px;
+color:#22c55e;
+}
+
+.subtitle{
+color:#9ca3af;
+margin-bottom:50px;
+font-size:17px;
+line-height:1.8;
+max-width:850px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.card{
+display:block;
+background:#111827;
+border:1px solid #1f2937;
+padding:30px;
+border-radius:18px;
+transition:.3s;
+text-decoration:none;
+color:#e6edf3;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:4px;
+background:#22c55e;
+transform:scaleX(0);
+transition:.3s;
+}
+
+.card:hover::before{
+transform:scaleX(1);
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#22c55e;
+box-shadow:0 0 35px rgba(34,197,94,.15);
+}
+
+h3{
+margin-bottom:14px;
+color:#22c55e;
+font-size:23px;
+line-height:1.5;
+}
+
+.card p{
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:22px;
+font-size:15px;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.tag{
+background:#0b1220;
+border:1px solid #1f2937;
+padding:7px 12px;
+border-radius:999px;
+font-size:13px;
+color:#9ca3af;
+}
+
+.github-btn{
+display:inline-block;
+margin-top:45px;
+padding:14px 24px;
+background:#22c55e;
+color:#0b0f17;
+text-decoration:none;
+border-radius:12px;
+font-weight:700;
+transition:.3s;
+}
+
+.github-btn:hover{
+background:#16a34a;
+transform:translateY(-2px);
+}
+
+.footer{
+text-align:center;
+margin-top:70px;
+padding-top:30px;
+border-top:1px solid #1f2937;
+color:#6b7280;
+font-size:14px;
+}
+.lab-image{
+
+width:75%;
+
+max-width:900px;
+
+display:block;
+
+margin:20px auto;
+
+border-radius:12px;
+
+border:1px solid #1f2937;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.25);
+}
+
+
+@keyframes bgMove{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.06);
+}
+
+100%{
+transform:scale(1);
+}
+
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a class="back" href="../index.html">← Back to SIEM Labs</a>
+
+<h1>📈 Splunk Powershell Investigation </h1>
+
+<p class="subtitle">
+In this SOC investigation lab, Sysmon logs were collected and analyzed in Splunk to investigate PowerShell activity. The objective was to identify who executed PowerShell, determine the parent process, review command-line activity, and assess whether the activity was benign or suspicious.
+</p>
+
+<!-- LAB OVERVIEW -->
+
+<div class="card">
+
+<h3>🎯 Objective</h3>
+
+<p>
+The goal of this lab was to perform a real-world SOC investigation using Sysmon Event ID 1 (Process Creation). PowerShell executions were analyzed to identify user activity, parent-child process relationships, command-line arguments, and potential malicious behavior.
+</p>
+
+<div class="tags">
+<span class="tag">Splunk</span>
+<span class="tag">SIEM</span>
+<span class="tag">Windows Logs</span>
+<span class="tag">SOC</span>
+</div>
+
+</div>
+
+<br>
+
+<!-- LAB ENVIRONMENT -->
+
+<div class="card">
+
+<h3>🖥️ Lab Environment</h3>
+
+<p>
+The following environment was used during this investigation:
+</p>
+
+<ul style="padding-left:25px;line-height:2;">
+<li>Windows 11 Host</li>
+<li>Sysmon Installed</li>
+<li>Splunk Enterprise</li>
+<li>Splunk Universal Forwarder</li>
+<li>Sysmon Event ID 1 Logs</li>
+<li>PowerShell Process Telemetry</li>
+</ul>
+
+</div>
+
+<br>
+
+<!-- INVESTIGATION STEPS -->
+
+<div class="card">
+
+<h3>🔍 Investigation Process</h3>
+
+<p>
+The investigation was performed using the following workflow:
+</p>
+
+<ul style="padding-left:25px;line-height:2;">
+<li>Verified Sysmon logs were ingested into Splunk</li>
+<li>Identified PowerShell process creation events</li>
+<li>Investigated ParentImage values</li>
+<li>Reviewed User accounts executing PowerShell</li>
+<li>Analyzed CommandLine arguments</li>
+<li>Correlated Parent Process and Child Process activity</li>
+<li>Determined legitimacy of observed executions</li>
+</ul>
+
+</div>
+
+<br>
+
+<!-- SPL QUERIES -->
+
+<div class="card">
+
+<h3>💻 SPL Queries Used</h3>
+
+<p>Example searches used during the investigation:</p>
+
+<pre style="
+background:#0b1220;
+padding:18px;
+border-radius:12px;
+overflow:auto;
+margin-top:15px;
+border:1px solid #1f2937;
+color:#22c55e;
+">
+
+EventID=1 Image="*powershell.exe"
+
+EventID=1 Image="*powershell.exe"
+| stats count
+
+EventID=1 Image="*powershell.exe"
+| stats count by ParentImage
+
+EventID=1 Image="*powershell.exe"
+| table _time User Image ParentImage CommandLine
+
+EventID=1 Image="*powershell.exe"
+| stats count by User
+
+EventID=1 Image="*powershell.exe"
+| stats count by CommandLine
+
+
+</pre>
+
+</div>
+
+<br>
+
+<!-- SCREENSHOTS -->
+<h3>📸 Investigation Screenshots</h3>
+
+<p>
+The following screenshots demonstrate the PowerShell investigation process performed in Splunk.
+</p>
+
+<br>
+
+<h4> Query 1 – PowerShell Process Creation Events</h4>
+
+<p>
+Retrieved all Sysmon Event ID 1 logs associated with PowerShell execution.
+</p>
+
+<img src="Images/powershell_query.png"
+alt="PowerShell Query"
+class="lab-image">
+
+<br>
+
+<h4> Query 2 – Parent Process Analysis</h4>
+
+<p>
+Identified which processes launched PowerShell on the system.
+</p>
+
+<img src="Images/parent_process_analysis.png"
+alt="Parent Process Analysis"
+class="lab-image">
+
+<br>
+
+<h4> Query 3 – User Attribution</h4>
+
+<p>
+Determined which user accounts executed PowerShell.
+</p>
+
+<img src="Images/user_analysis.png"
+alt="User Analysis"
+class="lab-image">
+
+<br>
+
+<h4> Query 4 – Command Line Investigation</h4>
+
+<p>
+Reviewed PowerShell command-line arguments to identify suspicious execution patterns.
+</p>
+
+<img src="Images/commandline_analysis.png"
+alt="Command Line Analysis"
+class="lab-image">
+
+<!-- FINDINGS -->
+
+<div class="card">
+
+<h3>📋 Key Findings</h3>
+
+<p>
+A total of 1381 PowerShell process creation events were identified. Most executions originated from Splunk Enterprise and Splunk Universal Forwarder services. User attribution and command-line analysis revealed no evidence of malicious PowerShell activity. All observed activity was determined to be benign and related to system administration and lab operations.
+</p>
+
+</div>
+
+<br>
+
+<!-- LEARNING OUTCOMES -->
+
+<div class="card">
+
+<h3>🎓 Learning Outcomes</h3>
+
+<ul style="padding-left:25px;line-height:2;">
+<li>Sysmon Event ID 1 Analysis</li>
+<li>PowerShell Investigation Techniques</li>
+<li>Parent-Child Process Correlation</li>
+<li>User Attribution Analysis</li>
+<li>Command-Line Investigation</li>
+<li>Splunk Search Processing Language (SPL)</li>
+<li>SOC Investigation Methodology</li>
+<li>Threat Hunting Fundamentals</li>
+</ul>
+
+</div>
+
+<a class="github-btn"
+href="https://github.com/vivekbisht4569/SOC-Home-Lab/tree/main/04_SPLUNK_SIEM/02_Splunk%20PowerShell%20Activity%20Investigation"
+target="_blank" 
+>
+
+
+🚀 View Full Lab on GitHub
+
+</a>
+
+<div class="footer">
+Built & Documented by Vivek Singh Bisht
+</div>
+
+</div>
+
+
