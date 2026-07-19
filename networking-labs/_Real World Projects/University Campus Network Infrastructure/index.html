@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> University Campus Enterprise Network System   | Vivek</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,system-ui;
+}
+
+body{
+    background:#0b0f17;
+    color:#e6edf3;
+    line-height:1.7;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+}
+
+.back{
+    color:#22c55e;
+    text-decoration:none;
+    font-weight:600;
+    display:inline-block;
+    margin-bottom:35px;
+    transition:.3s;
+}
+
+.back:hover{
+    opacity:.8;
+}
+
+.hero{
+    background:linear-gradient(135deg,#111827,#0f172a);
+    border:1px solid #1f2937;
+    padding:40px;
+    border-radius:20px;
+    margin-bottom:35px;
+    box-shadow:0 0 30px rgba(0,0,0,.3);
+}
+
+.hero h1{
+    font-size:46px;
+    color:#22c55e;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#cbd5e1;
+    font-size:17px;
+    max-width:850px;
+}
+
+.section{
+    background:#111827;
+    border:1px solid #1f2937;
+    padding:30px;
+    border-radius:18px;
+    margin-bottom:30px;
+    transition:.3s;
+}
+
+.section:hover{
+    border-color:#22c55e;
+    transform:translateY(-2px);
+}
+
+h2{
+    color:#22c55e;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+h3{
+    color:#22c55e;
+    margin-top:25px;
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+p{
+    color:#d1d5db;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:12px;
+    color:#d1d5db;
+}
+
+pre{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:18px;
+    border-radius:12px;
+    color:#22c55e;
+    overflow-x:auto;
+    margin-top:15px;
+}
+
+.tech-stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.tech{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    padding:10px 16px;
+    border-radius:999px;
+    font-size:14px;
+    color:#cbd5e1;
+    transition:.3s;
+}
+
+.tech:hover{
+    background:#1f2937;
+    transform:translateY(-2px);
+}
+
+.image-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:25px;
+    margin-top:20px;
+}
+
+.image-card{
+    background:#0b1220;
+    border:1px solid #1f2937;
+    border-radius:16px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.image-card:hover{
+    transform:translateY(-3px);
+    border-color:#22c55e;
+}
+
+.image-card img{
+    width:100%;
+    display:block;
+}
+
+.image-caption{
+    padding:15px;
+    color:#cbd5e1;
+    font-size:15px;
+}
+
+.highlight{
+    color:#22c55e;
+    font-weight:600;
+}
+
+.github-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:15px 24px;
+    background:#22c55e;
+    color:#0b0f17;
+    text-decoration:none;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.github-btn:hover{
+    background:#16a34a;
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(34,197,94,.3);
+}
+
+.footer{
+    margin-top:40px;
+    text-align:center;
+    color:#6b7280;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a class="back" href="../index.html">← Back to Networking Labs</a>
+
+<div class="hero">
+
+<h1>🎓 University Campus Enterprise Network</h1>
+
+<p>
+This project demonstrates the design and implementation of a real-world university campus network using Cisco Packet Tracer. The infrastructure was built following enterprise networking principles, integrating VLAN segmentation, Router-on-a-Stick (ROAS), centralized DHCP services, Spanning Tree Protocol (STP), and Inter-VLAN Routing.
+
+Unlike individual networking labs, this project combines multiple technologies into one scalable campus infrastructure while emphasizing structured troubleshooting and network verification.
+</p>
+
+<div class="tech-stack">
+
+<span class="tech">Cisco Packet Tracer</span>
+<span class="tech">VLANs</span>
+<span class="tech">ROAS</span>
+<span class="tech">DHCP</span>
+<span class="tech">STP</span>
+<span class="tech">802.1Q Trunking</span>
+<span class="tech">Inter-VLAN Routing</span>
+
+</div>
+
+</div>
+
+<div class="section">
+<div class="section">
+
+<h2>🎯 Project Objective</h2>
+
+<p>
+
+The primary objective of this project was to design and deploy a scalable university campus network using enterprise networking concepts.
+
+The network was built to provide secure communication between multiple university departments while implementing centralized IP management, Layer 2 loop prevention, and efficient inter-department communication.
+
+Rather than focusing only on device configuration, this project emphasized structured troubleshooting and real-world network deployment practices.
+
+</p>
+
+</div>
+
+<p>
+The goal of this lab was to implement and understand how Real-World Enterprise Network works . 
+</p>
+<div class="section">
+
+<div class="section">
+
+<h2>🏗️ Network Architecture</h2>
+
+<p>
+The university campus network was designed using a hierarchical enterprise architecture consisting of a router, a core switch, two access switches, a centralized DHCP server, and multiple client devices distributed across different university departments.
+</p>
+
+<ul>
+
+<li><strong>1 Cisco 2811 Router</strong> configured for Router-on-a-Stick (ROAS).</li>
+
+<li><strong>1 Cisco Catalyst 3560 Core Switch</strong> acting as the central switching device.</li>
+
+<li><strong>2 Cisco Catalyst 2960 Access Switches</strong> providing connectivity to end devices.</li>
+
+<li><strong>1 Centralized DHCP Server</strong> responsible for dynamic IP address allocation.</li>
+
+<li><strong>40 End Devices</strong> distributed across four different VLANs.</li>
+
+<li><strong>802.1Q Trunk Links</strong> connecting the router, core switch, and access switches.</li>
+
+<li><strong>Spanning Tree Protocol (STP)</strong> implemented for loop prevention.</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<div class="section">
+
+<h2>🧱 VLAN & IP Addressing Plan</h2>
+
+<p>
+
+To improve security, scalability, and network management, the university departments were logically separated into different VLANs.
+
+Each VLAN was assigned an independent subnet and default gateway.
+
+</p>
+
+<ul>
+
+<li><strong>VLAN 10 — Administration</strong><br>
+Network: 192.168.10.0/24<br>
+Gateway: 192.168.10.1</li>
+
+<li><strong>VLAN 20 — Faculty</strong><br>
+Network: 192.168.20.0/24<br>
+Gateway: 192.168.20.1</li>
+
+<li><strong>VLAN 30 — Library</strong><br>
+Network: 192.168.30.0/24<br>
+Gateway: 192.168.30.1</li>
+
+<li><strong>VLAN 40 — Computer Lab & DHCP Server</strong><br>
+Network: 192.168.40.0/24<br>
+Gateway: 192.168.40.1</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>🔗 VLAN Trunking</h2>
+
+<pre>
+interface fa0/24
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,40
+</pre>
+
+</div>
+
+<div class="section">
+
+<h2>⚙️ Technologies Implemented</h2>
+
+<div class="tech-stack">
+
+<span class="tech">VLAN Segmentation</span>
+
+<span class="tech">802.1Q Trunking</span>
+
+<span class="tech">Router-On-A-Stick</span>
+
+<span class="tech">Inter-VLAN Routing</span>
+
+<span class="tech">DHCP Server</span>
+
+<span class="tech">DHCP Relay</span>
+
+<span class="tech">IP Helper Address</span>
+
+<span class="tech">Spanning Tree Protocol</span>
+
+<span class="tech">Cisco CLI</span>
+
+<span class="tech">Enterprise Switching</span>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>🛠️ Implementation Workflow</h2>
+
+<ul>
+
+<li>Designed the complete university campus topology.</li>
+
+<li>Created four VLANs representing different university departments.</li>
+
+<li>Assigned switch access ports to their respective VLANs.</li>
+
+<li>Configured IEEE 802.1Q trunk links between the router, core switch, and access switches.</li>
+
+<li>Implemented Router-on-a-Stick (ROAS) for Inter-VLAN Routing.</li>
+
+<li>Configured a centralized DHCP server with dedicated DHCP pools for each VLAN.</li>
+
+<li>Configured DHCP Relay using <strong>ip helper-address</strong> for remote VLANs.</li>
+
+<li>Enabled Spanning Tree Protocol (STP) to prevent switching loops.</li>
+
+<li>Verified end-to-end communication across all departments.</li>
+
+</ul>
+
+</div>
+
+
+<div class="section">
+
+<h2>📡 DHCP Deployment</h2>
+
+<p>
+A centralized DHCP server was configured to dynamically assign IP addresses to all VLANs using DHCP pools and IP Helper Address configuration.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>🌳 STP & Root Guard</h2>
+
+<p>
+Spanning Tree Protocol (STP) was implemented to prevent Layer 2 loops while Root Guard was configured to protect the network from rogue Root Bridge attacks.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>✅ Network Verification</h2>
+
+<ul>
+<li>Successful Inter-VLAN Communication</li>
+<li>Automatic DHCP IP Assignment</li>
+<li>Successful Routing Between Departments</li>
+<li>STP Root Bridge Election Verified</li>
+<li>Root Guard Security Verified</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>📸 Project Screenshots</h2>
+
+<div class="image-grid">
+
+<!-- TOPOLOGY -->
+
+<div class="image-card">
+<img src="images/01_Tolpogy.png" alt="Banking Topology">
+
+<div class="image-caption">
+Complete SecureTrust Banking enterprise network topology with VLAN segmentation, DHCP server, ROAS, and STP implementation.
+</div>
+</div>
+
+<!-- DHCP POOL -->
+
+<div class="image-card">
+<img src="images/05_DHCP_Pool.png" alt="DHCP Pools">
+
+<div class="image-caption">
+Centralized DHCP server configuration with multiple VLAN DHCP pools for automatic IP assignment.
+</div>
+</div>
+
+<!-- ROAS -->
+
+<div class="image-card">
+<img src="images/04_ROAS.png" alt="ROAS Configuration">
+
+<div class="image-caption">
+Router-On-A-Stick (ROAS) configuration using subinterfaces and IEEE 802.1Q encapsulation.
+</div>
+</div>
+
+<!-- INTER VLAN PING -->
+
+<div class="image-card">
+<img src="images/08_Inter_vlan.png" alt="Inter VLAN Ping">
+
+<div class="image-caption">
+Successful inter-VLAN communication verified using ping between different enterprise departments.
+</div>
+</div>
+
+<!-- STP -->
+
+<div class="image-card">
+<img src="images/09_Spanning-tree.png" alt="STP Root Bridge">
+
+<div class="image-caption">
+STP Root Bridge election verification and Layer 2 loop prevention configuration.
+</div>
+</div>
+
+
+
+<div class="section">
+
+<h2>🧠 Key Learnings</h2>
+
+<ul>
+<li>Enterprise VLAN Segmentation</li>
+<li>Inter-VLAN Routing using ROAS</li>
+<li>DHCP Relay using IP Helper Address</li>
+<li>STP Root Bridge Election</li>
+<li>Root Guard Security</li>
+<li>Enterprise Network Troubleshooting</li>
+<li>Scalable Network Architecture</li>
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>🚀 View Full Project on GitHub</h2>
+
+<p>
+Complete configurations, Packet Tracer files, screenshots, and implementation details are available on GitHub.
+</p>
+
+<a class="github-btn" href="https://github.com/vivekbisht4569/Networking-labs/tree/main/16%20Projects/SecureTrust%20Banking%20Infrastructure%20Network" target="_blank">
+🚀 View on GitHub
+</a>
+
+</div>
+
+<div class="section">
+
+<h2>✅ Conclusion</h2>
+
+<p>
+This project simulated a real-world enterprise banking infrastructure while strengthening practical understanding of routing, switching, DHCP deployment, STP security, VLAN segmentation, and scalable enterprise network design.
+</p>
+
+</div>
+
+<div class="footer">
+Built & documented by Vivek Singh Bisht
+</div>
+
+</div>
+
+</body>
+</html>
