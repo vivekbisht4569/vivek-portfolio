@@ -426,57 +426,126 @@ Spanning Tree Protocol (STP) was implemented to prevent Layer 2 loops while Root
 
 <h2>📸 Project Screenshots</h2>
 
-<div class="image-grid">
-
 <!-- TOPOLOGY -->
 
 <div class="image-card">
-<img src="images/01_Tolpogy.png" alt="Banking Topology">
+<img src="images/01_Topology.png" alt="University Network Topology">
 
 <div class="image-caption">
-Complete SecureTrust Banking enterprise network topology with VLAN segmentation, DHCP server, ROAS, and STP implementation.
+Complete university campus network topology consisting of a Cisco 2811 Router, Cisco 3560 Core Switch, two Cisco 2960 Access Switches, centralized DHCP Server, and multiple client devices distributed across four VLANs.
 </div>
 </div>
 
-<!-- DHCP POOL -->
+<!-- VLAN ASSIGNMENT -->
 
 <div class="image-card">
-<img src="images/05_DHCP_Pool.png" alt="DHCP Pools">
+<img src="images/02_VLAN_Assignment.png" alt="VLAN Assignment">
 
 <div class="image-caption">
-Centralized DHCP server configuration with multiple VLAN DHCP pools for automatic IP assignment.
+VLAN creation and access port assignment for Administration (VLAN 10), Faculty (VLAN 20), Library (VLAN 30), and Computer Lab (VLAN 40), providing logical network segmentation.
+</div>
+</div>
+
+<!-- TRUNK PORT CONFIGURATION -->
+
+<div class="image-card">
+<img src="images/03_Trunk_Configuration.png" alt="Trunk Configuration">
+
+<div class="image-caption">
+IEEE 802.1Q trunk links configured between the router, core switch, and access switches, allowing VLAN traffic to traverse multiple network devices.
+</div>
+</div>
+
+<!-- STP CONFIGURATION -->
+
+<div class="image-card">
+<img src="images/04_STP_Configuration.png" alt="STP Configuration">
+
+<div class="image-caption">
+Spanning Tree Protocol (STP) configured to eliminate Layer 2 switching loops and maintain a stable, redundant campus network topology.
 </div>
 </div>
 
 <!-- ROAS -->
 
 <div class="image-card">
-<img src="images/04_ROAS.png" alt="ROAS Configuration">
+<img src="images/05_ROAS.png" alt="Router-On-A-Stick">
 
 <div class="image-caption">
-Router-On-A-Stick (ROAS) configuration using subinterfaces and IEEE 802.1Q encapsulation.
+Router-On-A-Stick (ROAS) implemented using IEEE 802.1Q subinterfaces, enabling communication between multiple VLANs through a single physical router interface.
 </div>
 </div>
 
-<!-- INTER VLAN PING -->
+<!-- DEFAULT GATEWAY -->
 
 <div class="image-card">
-<img src="images/08_Inter_vlan.png" alt="Inter VLAN Ping">
+<img src="images/06_Default_Gateway.png" alt="Gateway Configuration">
 
 <div class="image-caption">
-Successful inter-VLAN communication verified using ping between different enterprise departments.
+Each VLAN was assigned a dedicated default gateway on the router, allowing hosts to communicate beyond their local subnet through Inter-VLAN Routing.
 </div>
 </div>
 
-<!-- STP -->
+<!-- IP HELPER ADDRESS -->
 
 <div class="image-card">
-<img src="images/09_Spanning-tree.png" alt="STP Root Bridge">
+<img src="images/07_IP_Helper_Address.png" alt="IP Helper Address">
 
 <div class="image-caption">
-STP Root Bridge election verification and Layer 2 loop prevention configuration.
+DHCP Relay configured using <strong>ip helper-address</strong>, enabling DHCP broadcast requests from remote VLANs to reach the centralized DHCP server.
 </div>
 </div>
+
+<!-- DHCP POOLS -->
+
+<div class="image-card">
+<img src="images/08_DHCP_Pools.png" alt="DHCP Pools">
+
+<div class="image-caption">
+Centralized DHCP server configured with separate DHCP pools for each VLAN, automatically assigning IP addresses, subnet masks, default gateways, and network parameters.
+</div>
+</div>
+
+<!-- ROUTER VERIFICATION -->
+
+<div class="image-card">
+<img src="images/09_Router_Verification.png" alt="Router Verification">
+
+<div class="image-caption">
+Verification of Router-On-A-Stick subinterfaces and routing configuration, confirming successful operation of Inter-VLAN Routing and DHCP Relay services.
+</div>
+</div>
+
+<!-- DHCP IP ASSIGNMENT -->
+
+<div class="image-card">
+<img src="images/10_DHCP_Assignment.png" alt="DHCP Assignment">
+
+<div class="image-caption">
+Successful dynamic IP address assignment to client devices across multiple VLANs, validating the centralized DHCP deployment and relay configuration.
+</div>
+</div>
+
+<!-- CONNECTIVITY TEST -->
+
+<div class="image-card">
+<img src="images/11_Ping_Test.png" alt="Connectivity Test">
+
+<div class="image-caption">
+End-to-end connectivity verification demonstrating successful communication between devices located in different VLANs through Router-On-A-Stick (ROAS).
+</div>
+</div>
+
+<!-- TROUBLESHOOTING -->
+
+<div class="image-card">
+<img src="images/12_Troubleshooting.png" alt="Troubleshooting">
+
+<div class="image-caption">
+Troubleshooting process highlighting the diagnosis and resolution of DHCP relay, trunk configuration, gateway reachability, and VLAN communication issues using a structured, real-world approach.
+</div>
+</div>
+
 
 
 
